@@ -84,11 +84,38 @@ def serve():
     import subprocess
     sys.path.insert(0, '/app/dark-champion/scripts')
     from modal_production import ensure_control
+    # desktop=False keeps the legacy -R 8088 validation transport; the desktop
+    # launcher (scripts/modal_desktop.py) uses ensure_control(desktop=True) with a
+    # SOCKS tunnel instead.
     control, private_route = ensure_control(Path('/app/dark-champion'))
     root, env, transport = prepare_runtime(private_route)
     subprocess.run(['/opt/control/bin/python', 'scripts/service_manager.py', 'start'],
                    cwd=root, env=env, check=True)
     persist_volumes()
+
+@app.function(image=image, gpu='A100-80GB', cpu=8, memory=65536,
+              min_containers=0, max_containers=1, scaledown_window=10,
+              timeout=1800, startup_timeout=1800, include_source=False,
+              secrets=[modal.Secret.from_name('dark-champion-max-runtime-v1')],
+              volumes={'/cache': cache, '/validation': reports})
+@modal.concurrent(max_inputs=8)
+def ui_status():
+    """Readiness probe for the desktop launcher: gateway + UI through one SSH hop."""
+    import socket
+    sys.path.insert(0, '/app/dark-champion/scripts')
+    from modal_production import ensure_control
+    from modal_control import start_forwarder
+    values = {**os.environ}
+    control, private_route = ensure_control(Path('/app/dark-champion'), desktop=True)
+    transport = start_forwarder(values, private_route, Path('/app/dark-champion'))
+    try:
+        def probe(port):
+            try:
+                with socket.create_connection(('127.0.0.1', port), timeout=5): return True
+            except OSError: return False
+        return {'gateway': probe(8088), 'ui': probe(3000)}
+    finally:
+        transport.terminate(); transport.wait(timeout=10)
 
 @app.function(image=image, gpu='A100-80GB', cpu=8, memory=65536,
               max_containers=1, timeout=3600, include_source=False,

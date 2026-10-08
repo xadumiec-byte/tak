@@ -10,6 +10,7 @@ import signal
 
 PORTS = {'REDIS': 6379, 'QDRANT': 6333, 'SEARXNG': 8080,
          'CRAWL4AI': 11235, 'SANDBOX': 8091, 'OPEN_WEBUI': 3000}
+SOCKS_PORT = 3128
 SECRET_KEYS = ('DARK_API_KEY', 'VLLM_API_KEY', 'SANDBOX_API_KEY',
                'CRAWL4AI_API_TOKEN', 'WEBUI_SECRET_KEY', 'SEARXNG_SECRET')
 
@@ -63,6 +64,11 @@ def local_keys(root):
 
 def start_forwarder(env, route, root):
     """SSH host key comes from authenticated Modal exec, never ssh-keyscan/TOFU."""
+    if isinstance(route, dict) and 'tunnel' in route:
+        # Production mode: the control VM already owns every auxiliary listener.
+        # A single -D dynamic SOCKS tunnel carries all desktop traffic (gateway 8088,
+        # UI 3000, research 8090, sandbox 8091) over one authenticated SSH session.
+        return _start_socks_forwarder(env, route, root)
     host, port = route['host'], int(route['port'])
     if not host or any(c not in 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789.-' for c in host):
         raise ValueError('Invalid SSH tunnel host')
@@ -100,6 +106,56 @@ def start_forwarder(env, route, root):
     else:
         process.terminate(); process.wait(timeout=5)
         raise TimeoutError('SSH forwarding startup timeout')
+    for name, p in PORTS.items():
+        env[name + '_EXTERNAL_URL'] = ('redis' if name == 'REDIS' else 'http') + f'://127.0.0.1:{p}' + ('/0' if name == 'REDIS' else '')
+    return process
+
+def _ssh_transport(env, root, entry_args, ready_port, log_name='transport.log'):
+    """Shared pinned-identity launcher for -L/-D variants of the control transport."""
+    host, port = entry_args['host'], int(entry_args['port'])
+    if not host or any(c not in 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789.-' for c in host):
+        raise ValueError('Invalid SSH tunnel host')
+    if not 1 <= port <= 65535 or not entry_args['host_key'].startswith('ssh-ed25519 '):
+        raise ValueError('Missing pinned SSH identity')
+    directory = root / '.run' / 'ssh'
+    directory.mkdir(parents=True, exist_ok=True)
+    directory.chmod(0o700)
+    private = directory / 'identity'
+    private.write_text(env['MODAL_CONTROL_PRIVATE_KEY']); private.chmod(0o600)
+    known = directory / 'known_hosts'
+    known.write_text(f"[{host}]:{port} {entry_args['host_key'].strip()}\n"); known.chmod(0o600)
+    args = ['ssh', '-N', '-T', '-p', str(port), '-i', str(private),
+            '-o', 'BatchMode=yes', '-o', 'IdentitiesOnly=yes',
+            '-o', 'StrictHostKeyChecking=yes', '-o', f'UserKnownHostsFile={known}',
+            '-o', 'ExitOnForwardFailure=yes', '-o', 'ServerAliveInterval=15',
+            '-o', 'ServerAliveCountMax=2', '-o', 'ConnectTimeout=20']
+    args += entry_args['forward']
+    args += ['root@' + host]
+    log = (directory / log_name).open('ab')
+    try: process = subprocess.Popen(args, stdout=log, stderr=log, start_new_session=True)
+    finally: log.close()
+    deadline = time.monotonic() + 30
+    while time.monotonic() < deadline:
+        if process.poll() is not None:
+            raise RuntimeError('Pinned SSH transport exited; inspect ' + log_name)
+        # -D binds the dynamic port only after authentication succeeds, so this
+        # probe doubles as a credential/identity check before we declare ready.
+        try:
+            with socket.create_connection(('127.0.0.1', ready_port), timeout=1): break
+        except OSError: time.sleep(.2)
+    else:
+        process.terminate(); process.wait(timeout=5)
+        raise TimeoutError('SSH forwarding startup timeout')
+    return process
+
+def _start_socks_forwarder(env, route, root):
+    """Dynamic SOCKS proxy on loopback; all forwarded URLs stay reachable locally."""
+    process = _ssh_transport(env, root, {**route, 'forward': ['-D', f'127.0.0.1:{SOCKS_PORT}']},
+                             SOCKS_PORT, log_name='desktop-transport.log')
+    # httpx honours NO_PROXY for literal hosts; every forwarded URL below is a
+    # literal 127.0.0.1, so services keep direct connections and only desktop
+    # browsers use the SOCKS endpoint.
+    env.setdefault('NO_PROXY', '127.0.0.1,localhost')
     for name, p in PORTS.items():
         env[name + '_EXTERNAL_URL'] = ('redis' if name == 'REDIS' else 'http') + f'://127.0.0.1:{p}' + ('/0' if name == 'REDIS' else '')
     return process

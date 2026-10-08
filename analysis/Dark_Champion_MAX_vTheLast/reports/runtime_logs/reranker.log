@@ -1,0 +1,44 @@
+
+Fetching 6 files:   0%|          | 0/6 [00:00<?, ?it/s]
+Fetching 6 files: 100%|██████████| 6/6 [00:00<00:00, 708.48it/s]
+INFO:     Started server process [35]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8093 (Press CTRL+C to quit)
+INFO:     127.0.0.1:64352 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50014 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:40932 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44962 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [35]
+
+Fetching 6 files:   0%|          | 0/6 [00:00<?, ?it/s]
+Fetching 6 files: 100%|██████████| 6/6 [00:00<00:00, 798.92it/s]
+INFO:     Started server process [471]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8093 (Press CTRL+C to quit)
+INFO:     127.0.0.1:63323 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:19893 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49786 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:21008 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43758 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [471]
+
+Fetching 6 files:   0%|          | 0/6 [00:00<?, ?it/s]
+Fetching 6 files: 100%|██████████| 6/6 [00:00<00:00, 753.69it/s]
+INFO:     Started server process [873]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8093 (Press CTRL+C to quit)
+INFO:     127.0.0.1:50550 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:32331 - "GET /health HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [873]
