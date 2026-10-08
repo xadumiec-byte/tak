@@ -1,0 +1,205 @@
+{
+  "verdict": "REVISE",
+  "environment": "Linux-4.19.0-gvisor-x86_64-with-glibc2.35",
+  "gates": {
+    "gpu": {
+      "status": "PASS",
+      "detail": {
+        "name": "NVIDIA A100-SXM4-40GB",
+        "total_mib": 40960,
+        "used_mib": 36745,
+        "free_mib": 3697
+      },
+      "elapsed_s": 0.036017612999998505
+    },
+    "vram": {
+      "status": "PASS",
+      "detail": {
+        "name": "NVIDIA A100-SXM4-40GB",
+        "total_mib": 40960,
+        "used_mib": 36745,
+        "free_mib": 3697
+      },
+      "elapsed_s": 0.036017612999998505
+    },
+    "service_health": {
+      "status": "PASS",
+      "detail": {
+        "vllm": 200,
+        "gateway": 200,
+        "research": 200,
+        "embedding": 200,
+        "reranker": 200,
+        "sandbox": 200,
+        "crawler": 200,
+        "qdrant": 200,
+        "searxng": 200,
+        "open-webui": 200
+      },
+      "elapsed_s": 1.7719104179999903
+    },
+    "models": {
+      "status": "NOT TESTED",
+      "detail": "Not executed"
+    },
+    "completion": {
+      "status": "NOT TESTED",
+      "detail": "Not executed"
+    },
+    "streaming": {
+      "status": "NOT TESTED",
+      "detail": "Not executed"
+    },
+    "json_response": {
+      "status": "NOT TESTED",
+      "detail": "Not executed"
+    },
+    "concurrency": {
+      "status": "NOT TESTED",
+      "detail": "Not executed"
+    },
+    "execute_code": {
+      "status": "NOT TESTED",
+      "detail": "Not executed"
+    },
+    "sandbox_exception": {
+      "status": "NOT TESTED",
+      "detail": "Not executed"
+    },
+    "sandbox_timeout": {
+      "status": "NOT TESTED",
+      "detail": "Not executed"
+    },
+    "sandbox_output_limit": {
+      "status": "NOT TESTED",
+      "detail": "Not executed"
+    },
+    "sandbox_network": {
+      "status": "NOT TESTED",
+      "detail": "Not executed"
+    },
+    "sandbox_filesystem": {
+      "status": "NOT TESTED",
+      "detail": "Not executed"
+    },
+    "sandbox_child_cleanup": {
+      "status": "NOT TESTED",
+      "detail": "Not executed"
+    },
+    "research_lifecycle": {
+      "status": "NOT TESTED",
+      "detail": "Not executed"
+    },
+    "sandbox_memory": {
+      "status": "NOT TESTED",
+      "detail": "Not executed"
+    },
+    "sandbox_process_limit": {
+      "status": "NOT TESTED",
+      "detail": "Not executed"
+    },
+    "research_failure": {
+      "status": "NOT TESTED",
+      "detail": "Not executed"
+    },
+    "research_cancel": {
+      "status": "NOT TESTED",
+      "detail": "Not executed"
+    },
+    "hybrid_rag": {
+      "status": "NOT TESTED",
+      "detail": "Not executed"
+    },
+    "citations": {
+      "status": "NOT TESTED",
+      "detail": "Not executed"
+    },
+    "tool_execute_code": {
+      "status": "NOT TESTED",
+      "detail": "Not executed"
+    },
+    "tool_submit_research": {
+      "status": "NOT TESTED",
+      "detail": "Not executed"
+    },
+    "tool_research_status": {
+      "status": "NOT TESTED",
+      "detail": "Not executed"
+    },
+    "context_8K": {
+      "status": "NOT TESTED",
+      "detail": "Not executed"
+    },
+    "context_16K": {
+      "status": "NOT TESTED",
+      "detail": "Not executed"
+    },
+    "context_32K": {
+      "status": "NOT TESTED",
+      "detail": "Not executed"
+    },
+    "benchmark": {
+      "status": "NOT TESTED",
+      "detail": "Not executed"
+    },
+    "restart": {
+      "status": "NOT TESTED",
+      "detail": "Not executed"
+    },
+    "gpu_configuration_matrix": {
+      "status": "NOT TESTED",
+      "detail": "Not executed"
+    },
+    "prompt_injection": {
+      "status": "NOT TESTED",
+      "detail": "Not executed"
+    },
+    "agent_roundtrip": {
+      "status": "PASS",
+      "detail": {
+        "message": {
+          "role": "assistant",
+          "content": "The code execution was successful, as indicated by an exit code of 0. The output \"agent-live-ok\" was printed to the standard output, confirming that the agent is operational and ready to assist with further tasks.",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "steps": 2,
+        "tool_trace": [
+          {
+            "tool_call": {
+              "id": "chatcmpl-tool-98cffb10b10660eb",
+              "type": "function",
+              "function": {
+                "name": "execute_code",
+                "arguments": "{\"code\": \"print('agent-live-ok')\"}"
+              }
+            },
+            "result": {
+              "exit_code": 0,
+              "stdout": "agent-live-ok\n",
+              "stderr": "",
+              "output_limited": false,
+              "timed_out": false
+            }
+          }
+        ]
+      },
+      "elapsed_s": 3.544052037
+    },
+    "redis_crash_recovery": {
+      "status": "NOT TESTED",
+      "detail": "Not executed"
+    }
+  },
+  "source_hash": "2fc404c0da50987cc886b131aa9daf2ab00ff38a186a3308c3a00d21c29b8fe6",
+  "note": "READY requires every gate, including restart and measured configuration matrix.",
+  "focused_gates": [
+    "agent_roundtrip",
+    "gpu",
+    "service_health",
+    "vram"
+  ]
+}

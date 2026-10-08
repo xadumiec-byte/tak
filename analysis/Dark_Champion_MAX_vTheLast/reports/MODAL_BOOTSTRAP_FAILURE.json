@@ -1,0 +1,6 @@
+{
+  "status": "FAIL",
+  "exact_error": "RuntimeError: Could not find nvcc and default cuda_home='/usr/local/cuda' doesn't exist",
+  "cache": "downloaded pinned model weights and BGE models; commit before teardown",
+  "report_prefix": "53933e51b8bf92a90a57b856de08881174d10edd4ec4af72f7be848fc8e09abc"
+}

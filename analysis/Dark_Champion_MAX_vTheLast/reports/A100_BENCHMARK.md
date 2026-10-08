@@ -1,0 +1,104 @@
+# Measured A100 matrix
+
+```json
+[
+  {
+    "requests": 8,
+    "wall_s": 10.041807541000026,
+    "mean_s": 6.341261945124984,
+    "p95_s": 10.041533937000167,
+    "completion_tokens": 936,
+    "throughput_tokens_s": 93.21031061174743,
+    "failures": 0,
+    "configuration": {
+      "VLLM_MAX_MODEL_LEN": "32768",
+      "VLLM_MAX_NUM_BATCHED_TOKENS": "8192",
+      "VLLM_MAX_NUM_SEQS": "2",
+      "VLLM_GPU_MEMORY_UTILIZATION": "0.92"
+    },
+    "startup_s": 94.25357273200007,
+    "streaming": {
+      "ttft_s": 0.11488645100007489,
+      "latency_s": 3.973360049000121,
+      "events": 195,
+      "completion_tokens": 193,
+      "tokens_s": 48.57349890769844,
+      "decode_tokens_s": 49.76061002452341
+    },
+    "vram": {
+      "name": "NVIDIA A100 80GB PCIe",
+      "total_mib": 81920,
+      "used_mib": 74223,
+      "free_mib": 6930
+    },
+    "observed_oom_log_events": 0,
+    "status": "PASS"
+  },
+  {
+    "requests": 8,
+    "wall_s": 9.997500900999967,
+    "mean_s": 6.258559123374994,
+    "p95_s": 9.997270962999892,
+    "completion_tokens": 936,
+    "throughput_tokens_s": 93.62339741388567,
+    "failures": 0,
+    "configuration": {
+      "VLLM_MAX_MODEL_LEN": "32768",
+      "VLLM_MAX_NUM_BATCHED_TOKENS": "16384",
+      "VLLM_MAX_NUM_SEQS": "2",
+      "VLLM_GPU_MEMORY_UTILIZATION": "0.92"
+    },
+    "startup_s": 160.30198095700007,
+    "streaming": {
+      "ttft_s": 0.10890110800005459,
+      "latency_s": 3.9875215709998884,
+      "events": 195,
+      "completion_tokens": 193,
+      "tokens_s": 48.40099208581947,
+      "decode_tokens_s": 49.502136605421256
+    },
+    "vram": {
+      "name": "NVIDIA A100 80GB PCIe",
+      "total_mib": 81920,
+      "used_mib": 73311,
+      "free_mib": 7842
+    },
+    "observed_oom_log_events": 0,
+    "status": "PASS"
+  },
+  {
+    "requests": 8,
+    "wall_s": 9.923450169000034,
+    "mean_s": 6.214219980875015,
+    "p95_s": 9.923138984999923,
+    "completion_tokens": 936,
+    "throughput_tokens_s": 94.3220335729583,
+    "failures": 0,
+    "configuration": {
+      "VLLM_MAX_MODEL_LEN": "32768",
+      "VLLM_MAX_NUM_BATCHED_TOKENS": "32768",
+      "VLLM_MAX_NUM_SEQS": "2",
+      "VLLM_GPU_MEMORY_UTILIZATION": "0.92"
+    },
+    "startup_s": 158.305297053,
+    "streaming": {
+      "ttft_s": 0.11132540299990978,
+      "latency_s": 3.9847964119999233,
+      "events": 195,
+      "completion_tokens": 193,
+      "tokens_s": 48.43409299877771,
+      "decode_tokens_s": 49.56794553357643
+    },
+    "vram": {
+      "name": "NVIDIA A100 80GB PCIe",
+      "total_mib": 81920,
+      "used_mib": 71555,
+      "free_mib": 9598
+    },
+    "observed_oom_log_events": 0,
+    "status": "PASS"
+  }
+]
+```
+
+OOM values count observed log events, not inferred kernel events. Baseline restore exit: 0

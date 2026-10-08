@@ -1,0 +1,37 @@
+[
+  {
+    "registry": "docker.io",
+    "repository": "library/redis",
+    "tag": "7-alpine",
+    "http_status": 200,
+    "digest": "sha256:858f009f9709ce576febc734aa78b8f6d624b82571f9ddb6bda4377c833b3499"
+  },
+  {
+    "registry": "docker.io",
+    "repository": "searxng/searxng",
+    "tag": "latest",
+    "http_status": 200,
+    "digest": "sha256:76b0bf285aca014c7191fc4d9234c4bfb358624ac33d8883833d496c059ec072"
+  },
+  {
+    "registry": "docker.io",
+    "repository": "qdrant/qdrant",
+    "tag": "v1.19.2",
+    "http_status": 200,
+    "digest": "sha256:b7b0444c4c351c970b98e90a6f89c2ee4287c65b44e52b4cb503fa5b2aa927ad"
+  },
+  {
+    "registry": "ghcr.io",
+    "repository": "open-webui/open-webui",
+    "tag": "v0.11.4",
+    "http_status": 200,
+    "digest": "sha256:9591b13f13843c7721c2b8eaf7382846c81b3ffe126526d1888d1fed50c6a33f"
+  },
+  {
+    "registry": "docker.io",
+    "repository": "library/python",
+    "tag": "3.12-slim",
+    "http_status": 200,
+    "digest": "sha256:05cda9777409a9c3ffddd94a4c476b79f0769a0b4857f0c7ed9226b6800b0d6f"
+  }
+]

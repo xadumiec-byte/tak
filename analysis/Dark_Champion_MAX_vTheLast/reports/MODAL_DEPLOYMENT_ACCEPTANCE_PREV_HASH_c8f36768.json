@@ -1,0 +1,8 @@
+{
+  "status": "BLOCKED",
+  "source_hash": "c8f367683d38d1544cdaa0c3742a550f79bf6bd69640caf5c390dda181464fb0",
+  "url": "https://adamoyt3--dark-champion-max-serve.modal.run",
+  "gates": {},
+  "error": "HTTPError: 500 HTTP Error 500: Internal Server Error",
+  "note": "Invalidated after SSH process-title evidence refined the current-source liveness detector."
+}

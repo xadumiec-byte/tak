@@ -1,0 +1,61 @@
+{
+  "question": "According to https://docs.python.org/3/library/asyncio.html what is asyncio used for?",
+  "queries": [],
+  "status": "DIAGNOSTIC",
+  "model_outputs": [
+    {
+      "max_tokens": 700,
+      "answer": "```json\n[\n    \"What are the primary use cases of asyncio in Python 3, as described in the official asyncio documentation?\",\n    \"How does asyncio facilitate asynchronous programming in Python, based on recent authoritative sources?\"\n]\n```"
+    },
+    {
+      "max_tokens": 700,
+      "answer": "SUFFICIENT"
+    },
+    {
+      "max_tokens": 3500,
+      "answer": "According to the evidence provided [1], asyncio is a library used for writing concurrent code using the async/await syntax. It serves as a foundation for various Python asynchronous frameworks, which are utilized for high-performance network and web servers, database connection libraries, distributed task queues, and more. asyncio is particularly well-suited for IO-bound and high-level structured network code [1]."
+    }
+  ],
+  "pipeline_result": {
+    "answer": "According to the evidence provided [1], asyncio is a library used for writing concurrent code using the async/await syntax. It serves as a foundation for various Python asynchronous frameworks, which are utilized for high-performance network and web servers, database connection libraries, distributed task queues, and more. asyncio is particularly well-suited for IO-bound and high-level structured network code [1].\n\nSources\n[1] https://docs.python.org/3/library/asyncio.html",
+    "citations": {
+      "1": {
+        "chunk_id": "774d31fd-e05e-5061-b5ec-fe9cebad3a7c",
+        "document_id": "87d2cce8-1cf0-5429-8820-76ea74bebebd",
+        "url": "https://docs.python.org/3/library/asyncio.html"
+      },
+      "2": {
+        "chunk_id": "0ea951fe-94c1-5991-bb96-6deada525f28",
+        "document_id": "87d2cce8-1cf0-5429-8820-76ea74bebebd",
+        "url": "https://docs.python.org/3/library/asyncio.html"
+      },
+      "3": {
+        "chunk_id": "c992d6c2-d65a-5eee-83b9-b309e16cec99",
+        "document_id": "87d2cce8-1cf0-5429-8820-76ea74bebebd",
+        "url": "https://docs.python.org/3/library/asyncio.html"
+      }
+    },
+    "used_citations": [
+      "1"
+    ],
+    "context": {
+      "prompt_tokens": 2463,
+      "generation_reserve": 3500,
+      "estimator": "tokenizer"
+    },
+    "job_id": "63651d1d-59a2-4177-9f97-1a1f07eb85a7",
+    "attempt_id": "default",
+    "retrieval_mode": "dense+sparse+rrf+reranker",
+    "queries": [
+      "What are the primary use cases of asyncio in Python 3, as described in the official asyncio documentation?",
+      "How does asyncio facilitate asynchronous programming in Python, based on recent authoritative sources?"
+    ],
+    "source_count": 1,
+    "sources": [
+      {
+        "title": "https://docs.python.org/3/library/asyncio.html",
+        "url": "https://docs.python.org/3/library/asyncio.html"
+      }
+    ]
+  }
+}

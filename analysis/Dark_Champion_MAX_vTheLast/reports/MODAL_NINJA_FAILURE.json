@@ -1,0 +1,7 @@
+{
+  "status": "FAIL",
+  "exact_error": "FileNotFoundError: [Errno 2] No such file or directory: 'ninja'",
+  "root_cause": "Absolute vLLM executable uses inference Python but does not put venv helper executables on PATH.",
+  "patch": "Prepend directory of VLLM_EXECUTABLE to PATH only in inference launcher",
+  "affected_gates": "vLLM startup and all model live gates; CPU and sandbox unaffected"
+}

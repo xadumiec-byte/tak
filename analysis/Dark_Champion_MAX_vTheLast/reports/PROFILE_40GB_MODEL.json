@@ -1,0 +1,12 @@
+{
+  "id": "Qwen/Qwen2.5-Coder-14B-Instruct",
+  "sha": "aedcc2d42b622764e023cf882b6652e646b95671",
+  "gated": false,
+  "safetensors": {
+    "parameters": {
+      "BF16": 14770033664
+    },
+    "total": 14770033664
+  },
+  "weight_bytes": 29540133960
+}

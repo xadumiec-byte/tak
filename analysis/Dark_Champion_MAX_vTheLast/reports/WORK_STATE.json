@@ -1,0 +1,399 @@
+{
+  "phase": "MODAL_A100_LIVE_READY",
+  "verdict": "READY",
+  "last_completed_gate": "34/34 live gates PASS on the current source hash; A100 matrix PASS; public production smoke PASS",
+  "current_issue": null,
+  "passing_tests": [
+    "94 full local regression tests PASS",
+    "23 focused Redis/jobs/config regression tests PASS",
+    "34/34 current-source Modal A100 live gates PASS",
+    "public models/auth/completion 3/3 PASS",
+    "A100 matrix 8192/16384/32768 PASS; baseline restore PASS"
+  ],
+  "failing_tests": [],
+  "blocked_tests": [],
+  "modified_files": [
+    "modal_app.py",
+    "scripts/modal_config.py",
+    "scripts/service_manager.py",
+    "scripts/detect_environment.py",
+    "tests/test_modal_config.py",
+    "tests/test_environment_capacity.py",
+    "INSTALL_MODAL.md",
+    "requirements-modal.txt",
+    "scripts/research_diagnostic.py",
+    "scripts/release_manifest.py",
+    "gpu/start_vllm_a100.sh"
+  ],
+  "remaining_p0": [],
+  "remaining_p1": [],
+  "remaining_p2": [],
+  "next_action": "No pending build gates. READY certified for current source hash; package release generated.",
+  "last_command": "python -m modal run modal_app.py --matrix",
+  "last_exit_code": 0,
+  "source_hash": "0262b4ace65ffdf33f88a18db80c9c780e2b0b97f18454212052a3b73bd2b0a5",
+  "provenance": {
+    "archive": "C:\\Users\\adamo\\Desktop\\ai\\Dark_Champion_MAX_vTheLast_A100_FASTCACHE.zip",
+    "archive_sha256": "86b5b75ecee715f308af25f33ae3bc6c37397949d95083ad933fdbdcef7f91dc",
+    "missing_original_checkpoints": [
+      "reports/WORK_STATE.json",
+      "reports/NEXT_ACTIONS.md",
+      "reports/RESUME_STATE.json"
+    ],
+    "original_audit_status": "NOT YET EXECUTED",
+    "note": "Archive checkpoint files were absent. No prior workspace PASS was transferred to this extracted source."
+  },
+  "runtime_environment": {
+    "timestamp_utc": "2026-10-06T23:35:21.417356+02:00",
+    "classification": "COLAB_GPU_OTHER",
+    "system": "Linux",
+    "platform": "Linux-6.6.122+-x86_64-with-glibc2.39",
+    "python": "3.13.15",
+    "executable": "/usr/bin/python3",
+    "is_colab": true,
+    "gpu": {
+      "available": true,
+      "name": "NVIDIA A100-SXM4-40GB",
+      "memory_mb": 40960,
+      "driver_version": "580.82.07"
+    }
+  },
+  "last_gpu_recheck": {
+    "environment": {
+      "timestamp_utc": "2026-10-07T00:09:15.448638+02:00",
+      "classification": "COLAB_GPU_OTHER",
+      "system": "Linux",
+      "platform": "Linux-6.6.122+-x86_64-with-glibc2.39",
+      "python": "3.13.15",
+      "executable": "/usr/bin/python3",
+      "is_colab": true,
+      "gpu": {
+        "available": true,
+        "name": "NVIDIA A100-SXM4-40GB",
+        "memory_mb": 40960,
+        "driver_version": "580.82.07"
+      }
+    },
+    "command": "python /content/dark_champion_environment_gate.py --require colab-a100 --report /content/dark_champion_gpu_check.json",
+    "exit_code": 2,
+    "detector_sha256": "63365b583abed848e581feff13d59b6a3df82968cbc6bbc7cb667881d031e165",
+    "verification": "Fresh patched detector execution after user reported 80GB: current accessible Colab notebook still measures NVIDIA A100-SXM4-40GB, 40960 MiB, exit 2.",
+    "screenshot": "reports/COLAB_GPU_RECHECK.png",
+    "notebook_url": "https://colab.research.google.com/drive/1SDkJ2tynOqKmkT2tJSeoo7djrAXNLydx",
+    "remote_commander_device": "DESKTOP-254M5GE: Windows, nvidia-smi unavailable",
+    "regression": {
+      "command": "python -m unittest discover -s tests -p test_environment_capacity.py -v",
+      "exit_code": 0,
+      "cases": [
+        "A100 40GB blocked",
+        "A100 80GB accepted",
+        "unknown VRAM blocked",
+        "H100 blocked"
+      ]
+    }
+  },
+  "browser_recovery": {
+    "timestamp_utc": "2026-10-07T00:48:45.942064+02:00",
+    "status": "BLOCK",
+    "notebook_url": "https://colab.research.google.com/drive/1L_JeNKUzZeiV4KX2mU7m_PH9-H9RdBAO",
+    "environment": {
+      "classification": "COLAB_A100_40GB",
+      "python": "3.13.15",
+      "gpu": "NVIDIA A100-SXM4-40GB",
+      "memory_mib": 40960,
+      "driver": "580.82.07"
+    },
+    "patch": "Normalize all 9 shell scripts CRLF to LF; add .gitattributes *.sh text eol=lf",
+    "tests": {
+      "bash_n_all_shell_scripts": "PASS on real Colab Linux",
+      "static_compileall": "PASS on real Colab Linux",
+      "autobuild": "BLOCK exit 127: scripts/colab_bootstrap.sh: line 12: docker: command not found"
+    },
+    "source_hash": "9a7130ad472c99718d4878c1c4d657c50bf67c8edeb13549c798f8642564766b",
+    "runtime_budget": "UI reports 0.58 units, two sessions, <=0.05 hours",
+    "detail": "BLOCK: Colab A100 40GB verified; bootstrap exits 127 because docker command is absent. Private external isolated auxiliary services are not configured. No model download or live acceptance executed."
+  },
+  "updated_at": "2026-10-08T00:23:54.901312+00:00",
+  "external_blocker_recheck": {
+    "timestamp_utc": "2026-10-06T22:49:28.6490277Z",
+    "local_docker": "daemon unavailable",
+    "local_env": "absent",
+    "required_input": "Private Linux/Docker host address and existing connection method; authenticated external auxiliary endpoints required"
+  },
+  "local_auxiliary_validation": {
+    "timestamp_utc": "2026-10-06T23:02:32.907974+00:00",
+    "source_hash": "c98e8b88d62a0bb34daf9ead5c291151f0765bfb56ad22972950a599921910be",
+    "device": "DESKTOP-254M5GE",
+    "docker_server": "29.8.0",
+    "docker_start_fix": "Restored verified C:/ProgramData only in launcher process environment; no persistent OS setting changed",
+    "services": {
+      "redis": "PASS PONG",
+      "qdrant": "PASS healthz",
+      "searxng": "PASS HTTP 200 after SEARXNG_SECRET environment patch",
+      "sandbox_broker": "PASS healthy; completion, timeout, readonly filesystem, disabled network, auth401",
+      "crawler": {
+        "exit_code": 0,
+        "stdout": "PASS static extraction and script removal\n",
+        "stderr": "",
+        "health": "PASS static-no-browser inside isolated container",
+        "host_route": "Host HTTP refused on internal extraction network; preserve isolation; route pending"
+      }
+    },
+    "scope": "Local real Docker components; not full Colab acceptance",
+    "blockers": [
+      "Colab UI reports zero compute units and runtime shutdown imminent",
+      "Private authenticated route from Colab to local auxiliaries not yet configured"
+    ],
+    "patch": "docker-compose.yml searxng.environment.SEARXNG_SECRET references generated .env secret",
+    "secret_storage": ".env excluded from release; values not printed"
+  },
+  "modal_migration": {
+    "timestamp_utc": "2026-10-06T23:30:14.967699+00:00",
+    "source_hash": "047b033d7934cf7c95f663c8d364b4ca039d39121eff6b98e4c2eee84ac12e07",
+    "verdict": "REVISE",
+    "target": "Modal Linux A100-40GB",
+    "implemented": [
+      "SDK 1.6.1 deployment adapter",
+      "Pinned separate inference/control images",
+      "Filtered source upload excluding credentials/reports/cache",
+      "Persistent models and source-hash report volumes",
+      "Native runtime reuse and explicit gateway host",
+      "Canonical baseline before matrix",
+      "Measured Modal detector"
+    ],
+    "unimplemented": [
+      "Move auxiliary Docker stack into Modal CPU VM",
+      "Private route/authenticated external auxiliary endpoints",
+      "All mandatory Modal live gates",
+      "Remote full runtime build/deploy"
+    ],
+    "account": {
+      "workspace": "adamoyt3",
+      "created_with_user_terms_authorization": true,
+      "actual_credit_usd": 30,
+      "payment_method_added": false,
+      "api_token_created": true,
+      "cloud_execution": "Bounded GPU detection PASS; app stopped",
+      "policy": "Available free credits only; no purchases",
+      "token_profile": "dark-champion",
+      "token_lifetime_hours": 12,
+      "token_storage": "C:/Users/adamo/.modal.toml outside project"
+    },
+    "tests": {
+      "focused": "15 passed",
+      "full_regression": "56 passed; one existing anyio deprecation warning",
+      "sdk_import": "PASS"
+    },
+    "sources": {
+      "gpu": {
+        "url": "https://modal.com/docs/guide/gpu",
+        "facts": [
+          "A100-40GB supported",
+          "GPU access requires valid payment method"
+        ]
+      },
+      "vm": {
+        "url": "https://modal.com/docs/guide/sandboxes",
+        "facts": [
+          "runtime=vm supports Docker",
+          "GPU sandboxes only gvisor"
+        ]
+      },
+      "web_server": "https://modal.com/docs/sdk/py/latest/web_server",
+      "image": "https://modal.com/docs/sdk/py/latest/Image",
+      "app": "https://modal.com/docs/sdk/py/latest/App",
+      "secrets": "https://modal.com/docs/guide/secrets",
+      "volumes": "https://modal.com/docs/guide/volumes",
+      "pricing": "https://modal.com/pricing"
+    },
+    "blocker": "GPU account blocker resolved. REVISE: auxiliary CPU VM migration and authenticated routing incomplete; runtime secret/build and mandatory model live gates pending.",
+    "screenshot": "reports/MODAL_ACCOUNT_CREDITS.png",
+    "gpu_access_probe": {
+      "timestamp_utc": "2026-10-06T23:30:14.967699+00:00",
+      "status": "PASS",
+      "exit_code": 0,
+      "gpu": "NVIDIA A100-SXM4-40GB",
+      "memory_mib": 40960,
+      "driver": "580.95.05",
+      "gpu_executed": true,
+      "run_url": "https://modal.com/apps/adamoyt3/main/ap-2prG44qvwuGU4ZYcaywpVT",
+      "dashboard_credit_usd_observed": 30,
+      "scope": "GPU access only; no model/live acceptance or benchmark",
+      "probe_fix": "include_source=True for single isolated probe module",
+      "app_stopped": true
+    }
+  },
+  "external_blocker": null,
+  "modal_build": {
+    "timestamp_utc": "2026-10-06T23:51:08.999808+00:00",
+    "source_hash": "5513d633dfa75303eb0acfa8eb86cac0389403974ce7caad9e8dd0fca8002980",
+    "phase": "MODAL_NVCC_FIX",
+    "verdict": "REVISE",
+    "failure": "RuntimeError: Could not find nvcc and default cuda_home='/usr/local/cuda' doesn't exist",
+    "patch": "CUDA 13.0.2 devel Ubuntu22.04 amd64 image pinned to sha256:6b6617592b94e7dcc6ffbe6d00720eed27bc6e3b4f06b26b93b4070c31f57391",
+    "verification": "Official registry docker manifest inspect confirms linux/amd64 digest; SDK import PASS; 62 local regression PASS",
+    "cache_committed": true,
+    "model_cache_volume": "dark-champion-model-cache",
+    "reports_volume": "dark-champion-validation",
+    "previous_report_prefix": "53933e51b8bf92a90a57b856de08881174d10edd4ec4af72f7be848fc8e09abc",
+    "build_pid": 4796,
+    "build_log": ".run/modal_build_cuda.log",
+    "next_action": "Validate nvcc availability and actual vLLM startup from cache; canonical baseline then matrix only after PASS",
+    "free_credit_dashboard": {
+      "observed_remaining_usd": 30,
+      "displayed_usage_usd": 0,
+      "note": "Dashboard may lag actual consumption; all runs bounded and no purchases"
+    }
+  },
+  "live_checkpoint": {
+    "app": "ap-tUXbRLI9bbjsrjFKphHbp5",
+    "report_prefix": "6d6a21f592c3d413741cae5c4a7f29a83ffe9d6aa316d439d064dc5fa32642d7",
+    "source_hash": "dbcb8835dae67a4c4e5e40044feeae1465ec111e647b887804c9b73f02622137",
+    "gates": {
+      "gpu": "PASS",
+      "vram": "PASS",
+      "service_health": "PASS",
+      "models": "PASS",
+      "completion": "PASS",
+      "streaming": "PASS",
+      "json_response": "PASS",
+      "concurrency": "PASS",
+      "execute_code": "PASS",
+      "sandbox_exception": "PASS",
+      "sandbox_timeout": "PASS",
+      "sandbox_output_limit": "PASS",
+      "sandbox_network": "PASS",
+      "sandbox_filesystem": "PASS",
+      "sandbox_child_cleanup": "PASS",
+      "research_lifecycle": "FAIL",
+      "sandbox_memory": "PASS",
+      "sandbox_process_limit": "PASS",
+      "research_failure": "PASS",
+      "research_cancel": "PASS",
+      "hybrid_rag": "BLOCKED",
+      "citations": "BLOCKED",
+      "tool_execute_code": "FAIL",
+      "tool_submit_research": "FAIL",
+      "tool_research_status": "FAIL",
+      "context_8K": "PASS",
+      "context_16K": "PASS",
+      "context_32K": "FAIL",
+      "benchmark": "PASS",
+      "restart": "PASS",
+      "gpu_configuration_matrix": "NOT TESTED",
+      "prompt_injection": "FAIL",
+      "agent_roundtrip": "BLOCKED"
+    },
+    "resources_stopped": true,
+    "reports_downloaded": true
+  },
+  "authentication_refresh": {
+    "status": "PASS",
+    "lifetime_hours": 12,
+    "scope": "same workspace/client/profile; unchanged permissions",
+    "timestamp": "2026-10-07T13:02:26.177306+00:00"
+  },
+  "diagnostic_session": {
+    "purpose": "first research failure acquisition only",
+    "gpu_gates_repeated": false,
+    "source_hash": "5340d44c21dd62d22b5c2e14e172f8b8b3761f2c519cdeaf0bfc9f00d5db031d",
+    "log": ".run/research_diagnostic_run.log",
+    "app_id": "ap-bqyKIYGmbsDji3XJF0zUew",
+    "container_id": "ta-01M4B7HR0MFN55Z14PX1TS1WDR",
+    "sandbox_id": "sb-01M4B7EJ7E0M6VRFXY6EJC0D9S",
+    "gpu_name": "NVIDIA A100-SXM4-80GB",
+    "vram_mib": 81920,
+    "budget_remaining_usd_observed": 28.55,
+    "timeout_seconds": 3600
+  },
+  "diagnosis": {
+    "search_repro": "real SearxNG search returned official docs; some engines CAPTCHA/rate-limited",
+    "fetch_repro": "PASS DNS-pinned public HTTPS fetch on Modal",
+    "extract_repro": "PASS actual isolated crawler, 7824 chars official asyncio documentation",
+    "prior_baseline_source_hash": "dbcb8835dae67a4c4e5e40044feeae1465ec111e647b887804c9b73f02622137",
+    "local_focused_regression": "16 PASS",
+    "remaining_free_credit_usd_observed": 28.55
+  },
+  "citation_patch": {
+    "attempt": 1,
+    "hypothesis": "Final user turn previously contained evidence only, separate from the question; explicit final task and citation instructions were missing from that turn.",
+    "changed": [
+      "services/research/context.py",
+      "tests/test_context.py"
+    ],
+    "focused_tests": "5 PASS",
+    "affected_gates": [
+      "research_lifecycle",
+      "hybrid_rag",
+      "citations",
+      "prompt_injection"
+    ],
+    "live_retry": "RUNNING; .run/research_citation_retry.log",
+    "source_hash": "16c4fa2abbbb13459fd279cee822bc982536b52158d35be9a1cbd32c7cbd7d54",
+    "validator": "unchanged; missing/unknown/grouped citations still rejected"
+  },
+  "source_patch": {
+    "focused_and_security_tests": "24 PASS",
+    "regression_selection_tests": "5 PASS",
+    "affected_gates": [
+      "research_lifecycle",
+      "hybrid_rag",
+      "citations",
+      "prompt_injection"
+    ],
+    "live_retry": "RUNNING; same bounded GPU repair window",
+    "container": "ta-01M4B92SVRVQ181066Q6XX7GFR"
+  },
+  "research_live": {
+    "source_hash": "dc18d046efd99063349edcb985731788c151deee49def3cfd369efa391e6767b",
+    "source_matches": true,
+    "gates": {
+      "research_lifecycle": "PASS",
+      "hybrid_rag": "PASS",
+      "citations": "PASS",
+      "prompt_injection": "PASS"
+    },
+    "evidence": "reports/LIVE_RESEARCH_PASS.json",
+    "gpu": "A100 80GB"
+  },
+  "tool_failure": {
+    "status_code": 400,
+    "upstream_message": "tool_choice=function \"execute_code\" requires --tool-call-parser to be set",
+    "parser_candidate": "hermes",
+    "metadata": "Installed vLLM registry/parser matches immutable Qwen template <tool_call> JSON format",
+    "retry": "restart inference in existing bounded GPU session",
+    "configuration_promoted": false
+  },
+  "free_credit_remaining_usd_observed": 27.64,
+  "updated_utc": "2026-10-08T00:23:54.901312+00:00",
+  "profile": "a100-80gb",
+  "live_history": {
+    "research": "reports/LIVE_RESEARCH_PASS.json; historical source evidence",
+    "agent": "reports/LIVE_AGENT_PASS.json; historical source evidence"
+  },
+  "current_cloud_run": null,
+  "remaining": [],
+  "latest_live_evidence": "reports/LIVE_ACCEPTANCE.json; reports/MODAL_DEPLOYMENT_ACCEPTANCE.json; reports/A100_MATRIX.json",
+  "target": "modal",
+  "pending_run_id": null,
+  "optimization": {
+    "report": "reports/MODAL_OPTIMIZATION.md",
+    "modal_idle_gpu_scaledown_seconds": 10,
+    "research_default_max_generated_tokens": 2600,
+    "previous_research_default_max_generated_tokens": 4900,
+    "configured_generation_ceiling_reduction_percent": 46.9,
+    "measured_savings": "NOT MEASURED; configured ceiling only",
+    "vllm_batched_tokens_default": 8192,
+    "context_tokens": 32768,
+    "a100_matrix_status": "PASS",
+    "source_hash": "0262b4ace65ffdf33f88a18db80c9c780e2b0b97f18454212052a3b73bd2b0a5"
+  },
+  "redis_recovery": {
+    "status": "PASS",
+    "valid_aof_prefix_bytes": 494,
+    "raw_aof_backup_bytes": 163822,
+    "raw_aof_backup_path": "Modal Volume dark-champion-runtime-state-v2:/redis-recovery-backup-20261008T0117/",
+    "raw_aof_sha256": "82a7ce5f810906aaef4108481184549cffd61010ad82e80681c4c58402a08b44",
+    "recovery_note": "Corrupt suffix preserved in the backup; canonical AOF restored from checker-verified prefix. Redis start/crash-recovery live gate PASS."
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "status": "FAIL",
+  "exact_error": "ValueError: Fast download using 'hf_transfer' is enabled (HF_HUB_ENABLE_HF_TRANSFER=1) but 'hf_transfer' package is not available in your environment.",
+  "affected": [
+    "embedding",
+    "reranker"
+  ],
+  "root_cause": "Optional downloader enabled globally but omitted from pinned CPU lock; inference hub also reports it deprecated.",
+  "patch": ".env.example HF_HUB_ENABLE_HF_TRANSFER=0",
+  "live_container": "ta-01M49SCWNDDWHYFDRPG58DM46R",
+  "focused_test": "Actual pinned BGE config downloaded on Modal CPU environment with HF_HUB_ENABLE_HF_TRANSFER=0",
+  "focused_status": "PASS",
+  "services_restarted": [
+    "embedding",
+    "reranker"
+  ],
+  "source_hash": "e513993a14d4d3709c6ee89ff460f016c1d0f301e7f8e24bea7fd61a6f22b3a7",
+  "affected_regression": "10 Modal contract tests PASS"
+}

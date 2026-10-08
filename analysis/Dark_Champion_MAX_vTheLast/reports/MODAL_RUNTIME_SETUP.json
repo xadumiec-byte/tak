@@ -1,0 +1,6 @@
+{
+  "status": "PREPARED",
+  "secret_name": "dark-champion-max-runtime-v1",
+  "secret_values_in_reports": false,
+  "production_serve": "UNVERIFIED; route bootstrap and persistent control state remain required"
+}

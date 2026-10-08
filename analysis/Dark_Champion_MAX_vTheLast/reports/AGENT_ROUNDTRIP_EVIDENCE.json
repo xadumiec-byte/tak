@@ -1,0 +1,13 @@
+{
+  "message": {
+    "role": "assistant",
+    "content": "```json\n{\n  \"name\": \"execute_code\",\n  \"arguments\": {\n    \"code\": \"print('agent-live-ok')\"\n  }\n}\n```",
+    "refusal": null,
+    "annotations": null,
+    "audio": null,
+    "function_call": null,
+    "reasoning": null
+  },
+  "steps": 1,
+  "tool_trace": []
+}

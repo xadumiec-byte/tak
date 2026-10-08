@@ -1,0 +1,6 @@
+{
+  "scope": "Local Docker auxiliary component; does not certify Colab/current full live acceptance",
+  "exit_code": 0,
+  "stdout": "{\"completion\": {\"status\": \"PASS\", \"result\": {\"exit_code\": 0, \"stdout\": \"sandbox-ok\\n\", \"stderr\": \"\", \"output_limited\": false, \"timed_out\": false}}, \"timeout\": {\"status\": \"PASS\", \"result\": {\"exit_code\": 124, \"stdout\": \"\", \"stderr\": \"\", \"output_limited\": false, \"timed_out\": true}}, \"filesystem\": {\"status\": \"PASS\", \"result\": {\"exit_code\": 0, \"stdout\": \"READ_ONLY\\n\", \"stderr\": \"\", \"output_limited\": false, \"timed_out\": false}}, \"network\": {\"status\": \"PASS\", \"result\": {\"exit_code\": 0, \"stdout\": \"NETWORK_BLOCKED\\n\", \"stderr\": \"\", \"output_limited\": false, \"timed_out\": false}}, \"auth\": {\"status\": \"PASS\", \"http_status\": 401}}\n",
+  "stderr": ""
+}

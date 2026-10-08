@@ -1,0 +1,51 @@
+{
+  "status": "PASS",
+  "lease_ms": 120000,
+  "docker_before": {
+    "container_id": "b146c5d4c5187c55fa9a232039cd318af13a7610f9388db7ff0c4abc4d1e4217",
+    "started_at": "2026-10-07T23:57:18.051187786Z",
+    "restart_count": 0
+  },
+  "redis_before": "ec5f03f9373157b26a64ee5de30125266713dd6d",
+  "redis_version": "7.4.11",
+  "job_id": "c6bb5b70-38fa-4460-a994-ce386bf3a5bd",
+  "phase": "DONE",
+  "aof_barrier": [
+    1,
+    0
+  ],
+  "original_attempt": 1,
+  "entry_id": "1791417984317-0",
+  "redis_fault": {
+    "container_id": "b146c5d4c5187c55fa9a232039cd318af13a7610f9388db7ff0c4abc4d1e4217",
+    "started_at": "2026-10-07T23:57:18.051187786Z",
+    "restart_count": 0,
+    "fault": "Docker SIGKILL",
+    "process_recovery": "explicit supervised service restart"
+  },
+  "redis_after": "c6d7b9a780939199498416170232484e6009f8fd",
+  "docker_after": {
+    "container_id": "b146c5d4c5187c55fa9a232039cd318af13a7610f9388db7ff0c4abc4d1e4217",
+    "started_at": "2026-10-08T00:06:26.7454517Z",
+    "restart_count": 0
+  },
+  "pending_restored": true,
+  "replacement_worker": {
+    "pid": 802,
+    "start": "95613"
+  },
+  "stale_completion_rejected": true,
+  "attempts": 2,
+  "state_history": [
+    "QUEUED",
+    "CLAIMED",
+    "RUNNING",
+    "CLAIMED",
+    "RUNNING",
+    "DONE"
+  ],
+  "pending_acknowledged": true,
+  "recovered_used_citations": [
+    "1"
+  ]
+}

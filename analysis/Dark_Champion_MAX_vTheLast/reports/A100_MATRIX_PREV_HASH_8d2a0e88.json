@@ -1,0 +1,101 @@
+{
+  "trials": [
+    {
+      "requests": 8,
+      "wall_s": 9.515467998000076,
+      "mean_s": 6.0510240055000395,
+      "p95_s": 9.515180365000106,
+      "completion_tokens": 920,
+      "throughput_tokens_s": 96.6846822661126,
+      "failures": 0,
+      "configuration": {
+        "VLLM_MAX_MODEL_LEN": "32768",
+        "VLLM_MAX_NUM_BATCHED_TOKENS": "8192",
+        "VLLM_MAX_NUM_SEQS": "2",
+        "VLLM_GPU_MEMORY_UTILIZATION": "0.92"
+      },
+      "startup_s": 100.24486653500003,
+      "streaming": {
+        "ttft_s": 0.11472405799986518,
+        "latency_s": 4.042381605999935,
+        "events": 205,
+        "completion_tokens": 203,
+        "tokens_s": 50.217920964882616,
+        "decode_tokens_s": 51.43014571187773
+      },
+      "vram": {
+        "name": "NVIDIA A100-SXM4-80GB",
+        "total_mib": 81920,
+        "used_mib": 74223,
+        "free_mib": 6930
+      },
+      "observed_oom_log_events": 0,
+      "status": "PASS"
+    },
+    {
+      "requests": 8,
+      "wall_s": 9.432498662000171,
+      "mean_s": 5.943555795374948,
+      "p95_s": 9.432304017999968,
+      "completion_tokens": 920,
+      "throughput_tokens_s": 97.5351317786366,
+      "failures": 0,
+      "configuration": {
+        "VLLM_MAX_MODEL_LEN": "32768",
+        "VLLM_MAX_NUM_BATCHED_TOKENS": "16384",
+        "VLLM_MAX_NUM_SEQS": "2",
+        "VLLM_GPU_MEMORY_UTILIZATION": "0.92"
+      },
+      "startup_s": 150.25443686900007,
+      "streaming": {
+        "ttft_s": 0.12332590599999094,
+        "latency_s": 4.054607537000038,
+        "events": 205,
+        "completion_tokens": 203,
+        "tokens_s": 50.06649796497877,
+        "decode_tokens_s": 51.382734426130355
+      },
+      "vram": {
+        "name": "NVIDIA A100-SXM4-80GB",
+        "total_mib": 81920,
+        "used_mib": 73311,
+        "free_mib": 7842
+      },
+      "observed_oom_log_events": 0,
+      "status": "PASS"
+    },
+    {
+      "requests": 8,
+      "wall_s": 9.431871491000038,
+      "mean_s": 5.943795653999956,
+      "p95_s": 9.431647643000133,
+      "completion_tokens": 920,
+      "throughput_tokens_s": 97.5416173638361,
+      "failures": 0,
+      "configuration": {
+        "VLLM_MAX_MODEL_LEN": "32768",
+        "VLLM_MAX_NUM_BATCHED_TOKENS": "32768",
+        "VLLM_MAX_NUM_SEQS": "2",
+        "VLLM_GPU_MEMORY_UTILIZATION": "0.92"
+      },
+      "startup_s": 160.2898737439998,
+      "streaming": {
+        "ttft_s": 0.12471506499991847,
+        "latency_s": 4.054705181999907,
+        "events": 205,
+        "completion_tokens": 203,
+        "tokens_s": 50.06529226864136,
+        "decode_tokens_s": 51.39962035176807
+      },
+      "vram": {
+        "name": "NVIDIA A100-SXM4-80GB",
+        "total_mib": 81920,
+        "used_mib": 71555,
+        "free_mib": 9598
+      },
+      "observed_oom_log_events": 0,
+      "status": "PASS"
+    }
+  ],
+  "restore_exit_code": 0
+}
