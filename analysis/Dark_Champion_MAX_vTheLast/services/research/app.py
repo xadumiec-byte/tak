@@ -9,7 +9,7 @@ import uuid
 import redis.asyncio as redis
 import jobs
 from context import compile_context, local_tokenizer, validate_citations
-from safe_fetch import fetch_html, DomainBudget
+from safe_fetch import fetch_html, DomainBudget, validate_url
 from qdrant_client import AsyncQdrantClient
 from rag import chunk_document, index_chunks, retrieve
 from qdrant_client.models import Distance, VectorParams, PointStruct
@@ -58,14 +58,25 @@ class Source:
     text: str = ""
 
 def public_http_url(url: str) -> bool:
-    """UNLOCKED: Brak blokad SSRF. Akceptuje każdy URL."""
+    """Allow public HTTP(S) targets while rejecting localhost/private/link-local networks."""
     try:
         parsed = urlparse(url)
-        return parsed.scheme in {"http", "https"} and bool(parsed.hostname)
+        if parsed.scheme not in {"http", "https"} or not parsed.hostname:
+            return False
+        if parsed.username or parsed.password:
+            return False
+        host = parsed.hostname.lower()
+        if host in {"localhost", "localhost.localdomain"} or host.endswith(".local"):
+            return False
+        try:
+            addresses = {info[4][0] for info in socket.getaddrinfo(host, None)}
+        except socket.gaierror:
+            return False
+        return all(ipaddress.ip_address(a).is_global for a in addresses)
     except Exception:
         return False
 
-async def llm(messages: list[dict[str, str]], temperature: float = 0.2, max_tokens: int = 16000) -> str:
+async def llm(messages: list[dict[str, str]], temperature: float = 0.2, max_tokens: int = 1800) -> str:
     payload = {
         "model": VLLM_MODEL,
         "messages": messages,
@@ -226,13 +237,13 @@ async def query_memory(question: str, top_k: int = 10) -> list[dict]:
         return []
 
 def explicit_sources(question: str) -> list[Source]:
-    """
-    UNLOCKED: no SSRF filtering. Accepts any http/https URL, including internal/private targets.
-    """
+    """Read user-specified source URLs through the same guarded crawl path."""
     sources = []
     for candidate in re.findall(r"https?://[^\s<>\"']+", question):
         url = candidate.rstrip('.,;!?)]}')
-        if not public_http_url(url):
+        try:
+            validate_url(url)
+        except ValueError:
             continue
         sources.append(Source(title=url, url=url))
         if len(sources) >= MAX_SOURCES:

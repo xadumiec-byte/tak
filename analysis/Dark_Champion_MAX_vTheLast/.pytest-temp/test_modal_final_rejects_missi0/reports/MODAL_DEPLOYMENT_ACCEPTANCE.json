@@ -1,0 +1,1 @@
+{"status": "PASS", "source_hash": "current", "gates": {"models": {"status": "PASS"}, "auth": {"status": "FAIL"}, "completion": {"status": "PASS"}}}

@@ -1,0 +1,152 @@
+{
+  "verdict": "REVISE",
+  "environment": "Linux-4.19.91-c8dfc93.al7.x86_64-x86_64-with-glibc2.36",
+  "gates": {
+    "gpu": {
+      "status": "PASS",
+      "detail": "test-only"
+    },
+    "vram": {
+      "status": "PASS",
+      "detail": "test-only"
+    },
+    "service_health": {
+      "status": "PASS",
+      "detail": "test-only"
+    },
+    "models": {
+      "status": "PASS",
+      "detail": "test-only"
+    },
+    "completion": {
+      "status": "PASS",
+      "detail": "test-only"
+    },
+    "streaming": {
+      "status": "PASS",
+      "detail": "test-only"
+    },
+    "json_response": {
+      "status": "PASS",
+      "detail": "test-only"
+    },
+    "concurrency": {
+      "status": "PASS",
+      "detail": "test-only"
+    },
+    "execute_code": {
+      "status": "PASS",
+      "detail": "test-only"
+    },
+    "sandbox_exception": {
+      "status": "PASS",
+      "detail": "test-only"
+    },
+    "sandbox_timeout": {
+      "status": "PASS",
+      "detail": "test-only"
+    },
+    "sandbox_output_limit": {
+      "status": "PASS",
+      "detail": "test-only"
+    },
+    "sandbox_network": {
+      "status": "PASS",
+      "detail": "test-only"
+    },
+    "sandbox_filesystem": {
+      "status": "PASS",
+      "detail": "test-only"
+    },
+    "sandbox_child_cleanup": {
+      "status": "PASS",
+      "detail": "test-only"
+    },
+    "research_lifecycle": {
+      "status": "PASS",
+      "detail": "test-only"
+    },
+    "sandbox_memory": {
+      "status": "PASS",
+      "detail": "test-only"
+    },
+    "sandbox_process_limit": {
+      "status": "PASS",
+      "detail": "test-only"
+    },
+    "research_failure": {
+      "status": "PASS",
+      "detail": "test-only"
+    },
+    "research_cancel": {
+      "status": "PASS",
+      "detail": "test-only"
+    },
+    "hybrid_rag": {
+      "status": "PASS",
+      "detail": "test-only"
+    },
+    "citations": {
+      "status": "PASS",
+      "detail": "test-only"
+    },
+    "tool_execute_code": {
+      "status": "PASS",
+      "detail": "test-only"
+    },
+    "tool_submit_research": {
+      "status": "PASS",
+      "detail": "test-only"
+    },
+    "tool_research_status": {
+      "status": "PASS",
+      "detail": "test-only"
+    },
+    "context_8K": {
+      "status": "PASS",
+      "detail": "test-only"
+    },
+    "context_16K": {
+      "status": "PASS",
+      "detail": "test-only"
+    },
+    "context_32K": {
+      "status": "PASS",
+      "detail": "test-only"
+    },
+    "benchmark": {
+      "status": "PASS",
+      "detail": "test-only"
+    },
+    "restart": {
+      "status": "PASS",
+      "detail": "test-only"
+    },
+    "gpu_configuration_matrix": {
+      "status": "PASS",
+      "detail": "test-only"
+    },
+    "prompt_injection": {
+      "status": "PASS",
+      "detail": "test-only"
+    },
+    "agent_roundtrip": {
+      "status": "PASS",
+      "detail": "test-only"
+    },
+    "redis_crash_recovery": {
+      "status": "PASS",
+      "detail": "test-only"
+    }
+  },
+  "source_hash": "test-source",
+  "deployment_target": "colab",
+  "note": "READY requires every gate, including restart and measured configuration matrix.",
+  "focused_gates": [
+    "citations",
+    "gpu",
+    "research_lifecycle",
+    "service_health",
+    "vram"
+  ]
+}
