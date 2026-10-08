@@ -1,0 +1,174 @@
+{
+  "verdict": "REVISE",
+  "environment": "Linux-4.19.0-gvisor-x86_64-with-glibc2.35",
+  "gates": {
+    "gpu": {
+      "status": "PASS",
+      "detail": {
+        "name": "NVIDIA A100-SXM4-80GB",
+        "total_mib": 81920,
+        "used_mib": 74602,
+        "free_mib": 6552
+      },
+      "elapsed_s": 0.04809761299998172
+    },
+    "vram": {
+      "status": "PASS",
+      "detail": {
+        "name": "NVIDIA A100-SXM4-80GB",
+        "total_mib": 81920,
+        "used_mib": 74602,
+        "free_mib": 6552
+      },
+      "elapsed_s": 0.04809761299998172
+    },
+    "service_health": {
+      "status": "PASS",
+      "detail": {
+        "vllm": 200,
+        "gateway": 200,
+        "research": 200,
+        "embedding": 200,
+        "reranker": 200,
+        "sandbox": 200,
+        "crawler": 200,
+        "qdrant": 200,
+        "searxng": 200,
+        "open-webui": 200
+      },
+      "elapsed_s": 1.3389117159999842
+    },
+    "models": {
+      "status": "NOT TESTED",
+      "detail": "Not executed"
+    },
+    "completion": {
+      "status": "NOT TESTED",
+      "detail": "Not executed"
+    },
+    "streaming": {
+      "status": "NOT TESTED",
+      "detail": "Not executed"
+    },
+    "json_response": {
+      "status": "NOT TESTED",
+      "detail": "Not executed"
+    },
+    "concurrency": {
+      "status": "NOT TESTED",
+      "detail": "Not executed"
+    },
+    "execute_code": {
+      "status": "NOT TESTED",
+      "detail": "Not executed"
+    },
+    "sandbox_exception": {
+      "status": "NOT TESTED",
+      "detail": "Not executed"
+    },
+    "sandbox_timeout": {
+      "status": "NOT TESTED",
+      "detail": "Not executed"
+    },
+    "sandbox_output_limit": {
+      "status": "NOT TESTED",
+      "detail": "Not executed"
+    },
+    "sandbox_network": {
+      "status": "NOT TESTED",
+      "detail": "Not executed"
+    },
+    "sandbox_filesystem": {
+      "status": "NOT TESTED",
+      "detail": "Not executed"
+    },
+    "sandbox_child_cleanup": {
+      "status": "NOT TESTED",
+      "detail": "Not executed"
+    },
+    "research_lifecycle": {
+      "status": "NOT TESTED",
+      "detail": "Not executed"
+    },
+    "sandbox_memory": {
+      "status": "NOT TESTED",
+      "detail": "Not executed"
+    },
+    "sandbox_process_limit": {
+      "status": "NOT TESTED",
+      "detail": "Not executed"
+    },
+    "research_failure": {
+      "status": "NOT TESTED",
+      "detail": "Not executed"
+    },
+    "research_cancel": {
+      "status": "NOT TESTED",
+      "detail": "Not executed"
+    },
+    "hybrid_rag": {
+      "status": "NOT TESTED",
+      "detail": "Not executed"
+    },
+    "citations": {
+      "status": "NOT TESTED",
+      "detail": "Not executed"
+    },
+    "tool_execute_code": {
+      "status": "FAIL",
+      "detail": {
+        "error": "Client error '400 Bad Request' for url 'http://127.0.0.1:8000/v1/chat/completions'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400",
+        "status_code": 400,
+        "response_body": "{\"error\":{\"message\":\"tool_choice=function \\\"execute_code\\\" requires --tool-call-parser to be set\",\"type\":\"BadRequestError\",\"param\":null,\"code\":400}}"
+      }
+    },
+    "tool_submit_research": {
+      "status": "NOT TESTED",
+      "detail": "Not executed"
+    },
+    "tool_research_status": {
+      "status": "NOT TESTED",
+      "detail": "Not executed"
+    },
+    "context_8K": {
+      "status": "NOT TESTED",
+      "detail": "Not executed"
+    },
+    "context_16K": {
+      "status": "NOT TESTED",
+      "detail": "Not executed"
+    },
+    "context_32K": {
+      "status": "NOT TESTED",
+      "detail": "Not executed"
+    },
+    "benchmark": {
+      "status": "NOT TESTED",
+      "detail": "Not executed"
+    },
+    "restart": {
+      "status": "NOT TESTED",
+      "detail": "Not executed"
+    },
+    "gpu_configuration_matrix": {
+      "status": "NOT TESTED",
+      "detail": "Not executed"
+    },
+    "prompt_injection": {
+      "status": "NOT TESTED",
+      "detail": "Not executed"
+    },
+    "agent_roundtrip": {
+      "status": "NOT TESTED",
+      "detail": "Not executed"
+    }
+  },
+  "source_hash": "dc18d046efd99063349edcb985731788c151deee49def3cfd369efa391e6767b",
+  "note": "READY requires every gate, including restart and measured configuration matrix.",
+  "focused_gates": [
+    "gpu",
+    "service_health",
+    "tool_execute_code",
+    "vram"
+  ]
+}

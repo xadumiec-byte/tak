@@ -1,0 +1,15 @@
+{
+  "requests": 8,
+  "wall_s": 9.923450169000034,
+  "mean_s": 6.214219980875015,
+  "p95_s": 9.923138984999923,
+  "completion_tokens": 936,
+  "throughput_tokens_s": 94.3220335729583,
+  "failures": 0,
+  "configuration": {
+    "VLLM_MAX_MODEL_LEN": "32768",
+    "VLLM_MAX_NUM_BATCHED_TOKENS": "32768",
+    "VLLM_MAX_NUM_SEQS": "2",
+    "VLLM_GPU_MEMORY_UTILIZATION": "0.92"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "local_source_hash": "8eeddef7c77b7a9ddcc40826247db4cf99fa51f0a47232308f2bc266e7d01c74",
+  "remote_source_hash": "8eeddef7c77b7a9ddcc40826247db4cf99fa51f0a47232308f2bc266e7d01c74",
+  "missing_remote": [],
+  "extra_remote": [],
+  "changed": [],
+  "root_cause": "Path ordering is case-insensitive on Windows and case-sensitive on Linux",
+  "patch": "Sort normalized relative POSIX strings",
+  "focused_test": "2 final-gate tests PASS",
+  "status": "PASS",
+  "live_verification": "Actual remote source_hash output equals local after canonical ordering patch"
+}

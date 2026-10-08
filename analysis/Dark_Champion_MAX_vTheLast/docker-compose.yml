@@ -1,0 +1,216 @@
+services:
+  dark-gateway:
+    build:
+      context: .
+      dockerfile: services/gateway/Dockerfile
+    env_file: .env
+    ports:
+    - 127.0.0.1:${GATEWAY_PORT:-8088}:8088
+    extra_hosts:
+    - host.docker.internal:host-gateway
+    depends_on:
+      research:
+        condition: service_healthy
+      sandbox-broker:
+        condition: service_healthy
+    restart: unless-stopped
+    environment:
+      SANDBOX_URL: http://sandbox-broker:8091
+  research:
+    build:
+      context: .
+      dockerfile: services/research/Dockerfile
+    env_file: .env
+    environment:
+      SEARXNG_URL: http://searxng:8080
+      CRAWL4AI_URL: http://crawl4ai:11235
+      QDRANT_URL: http://qdrant:6333
+      EMBEDDING_URL: http://embedding-service:8092
+      RERANKER_URL: http://reranker-service:8093
+    extra_hosts:
+    - host.docker.internal:host-gateway
+    depends_on:
+      redis:
+        condition: service_healthy
+      qdrant:
+        condition: service_started
+      searxng:
+        condition: service_started
+      embedding-service:
+        condition: service_healthy
+      reranker-service:
+        condition: service_healthy
+    healthcheck:
+      test:
+      - CMD
+      - python
+      - -c
+      - import urllib.request; urllib.request.urlopen('http://localhost:8090/health',
+        timeout=3)
+      interval: 10s
+      timeout: 5s
+      retries: 10
+    restart: unless-stopped
+    networks:
+    - default
+    - extraction
+  research-worker:
+    build:
+      context: .
+      dockerfile: services/research/Dockerfile
+    command:
+    - python
+    - worker.py
+    env_file: .env
+    environment:
+      SEARXNG_URL: http://searxng:8080
+      CRAWL4AI_URL: http://crawl4ai:11235
+      QDRANT_URL: http://qdrant:6333
+      EMBEDDING_URL: http://embedding-service:8092
+      RERANKER_URL: http://reranker-service:8093
+    extra_hosts:
+    - host.docker.internal:host-gateway
+    depends_on:
+      redis:
+        condition: service_healthy
+    restart: unless-stopped
+    networks:
+    - default
+    - extraction
+  embedding-service:
+    build:
+      context: .
+      dockerfile: services/embedding/Dockerfile
+    environment:
+      EMBEDDING_MODEL: ${EMBEDDING_MODEL:-BAAI/bge-m3}
+      EMBEDDING_MODEL_REVISION: ${EMBEDDING_MODEL_REVISION}
+    healthcheck:
+      test:
+      - CMD
+      - python
+      - -c
+      - import urllib.request; urllib.request.urlopen('http://localhost:8092/health',
+        timeout=3)
+      interval: 20s
+      timeout: 5s
+      retries: 20
+    restart: unless-stopped
+    volumes:
+    - hf-cache:/root/.cache/huggingface
+  reranker-service:
+    build:
+      context: .
+      dockerfile: services/reranker/Dockerfile
+    environment:
+      RERANKER_MODEL: ${RERANKER_MODEL:-BAAI/bge-reranker-v2-m3}
+      RERANKER_MODEL_REVISION: ${RERANKER_MODEL_REVISION}
+    healthcheck:
+      test:
+      - CMD
+      - python
+      - -c
+      - import urllib.request; urllib.request.urlopen('http://localhost:8093/health',
+        timeout=3)
+      interval: 20s
+      timeout: 5s
+      retries: 20
+    restart: unless-stopped
+    volumes:
+    - hf-cache:/root/.cache/huggingface
+  redis:
+    image: library/redis:7-alpine@sha256:858f009f9709ce576febc734aa78b8f6d624b82571f9ddb6bda4377c833b3499
+    command:
+    - redis-server
+    - --appendonly
+    - 'yes'
+    volumes:
+    - redis-data:/data
+    healthcheck:
+      test:
+      - CMD
+      - redis-cli
+      - ping
+      interval: 5s
+      timeout: 3s
+      retries: 10
+    restart: unless-stopped
+  open-webui:
+    image: ghcr.io/open-webui/open-webui:v0.11.4@sha256:9591b13f13843c7721c2b8eaf7382846c81b3ffe126526d1888d1fed50c6a33f
+    env_file: .env
+    environment:
+      OPENAI_API_BASE_URL: http://dark-gateway:8088/v1
+      OPENAI_API_KEY: ${DARK_API_KEY}
+      WEBUI_SECRET_KEY: ${WEBUI_SECRET_KEY}
+    ports:
+    - 127.0.0.1:${OPEN_WEBUI_PORT:-3000}:8080
+    volumes:
+    - open-webui-data:/app/backend/data
+    depends_on:
+    - dark-gateway
+    restart: unless-stopped
+  searxng:
+    image: searxng/searxng:latest@sha256:76b0bf285aca014c7191fc4d9234c4bfb358624ac33d8883833d496c059ec072
+    environment:
+      SEARXNG_SECRET: ${SEARXNG_SECRET:?Run scripts/bootstrap_env.py first}
+    ports:
+    - 127.0.0.1:${SEARXNG_PORT:-8080}:8080
+    volumes:
+    - ./infra/searxng/settings.yml:/etc/searxng/settings.yml:ro
+    restart: unless-stopped
+  qdrant:
+    image: qdrant/qdrant:v1.19.2@sha256:b7b0444c4c351c970b98e90a6f89c2ee4287c65b44e52b4cb503fa5b2aa927ad
+    ports:
+    - 127.0.0.1:${QDRANT_PORT:-6333}:6333
+    volumes:
+    - qdrant-data:/qdrant/storage
+    restart: unless-stopped
+  crawl4ai:
+    build:
+      context: .
+      dockerfile: services/crawler/Dockerfile
+    environment:
+      CRAWL4AI_API_TOKEN: ${CRAWL4AI_API_TOKEN}
+    networks:
+    - extraction
+    ports:
+    - 127.0.0.1:${CRAWL4AI_PORT:-11235}:11235
+    mem_limit: 1g
+    cpus: 1.0
+    pids_limit: 64
+    restart: unless-stopped
+  sandbox-runtime:
+    build:
+      context: .
+      dockerfile: services/sandbox/Dockerfile
+    image: dark-sandbox-runtime:local
+    profiles:
+    - build-only
+    network_mode: none
+  sandbox-broker:
+    build:
+      context: .
+      dockerfile: services/sandbox/Broker.Dockerfile
+    environment:
+      SANDBOX_API_KEY: ${SANDBOX_API_KEY}
+      SANDBOX_IMAGE: dark-sandbox-runtime:local
+    volumes:
+    - /var/run/docker.sock:/var/run/docker.sock
+    healthcheck:
+      test:
+      - CMD
+      - python
+      - -c
+      - import urllib.request; urllib.request.urlopen('http://localhost:8091/health',timeout=5)
+      interval: 10s
+      timeout: 8s
+      retries: 10
+    restart: unless-stopped
+volumes:
+  open-webui-data: null
+  qdrant-data: null
+  redis-data: null
+  hf-cache: {}
+networks:
+  default: {}
+  extraction:
+    internal: true

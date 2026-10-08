@@ -1,0 +1,6 @@
+{
+  "question": "According to https://docs.python.org/3/library/asyncio.html what is asyncio used for?",
+  "queries": [],
+  "status": "DIAGNOSTIC",
+  "error": "Traceback (most recent call last):\n  File \"/app/dark-champion/scripts/research_diagnostic.py\", line 17, in main\n    output['pipeline_result'] = await research.run_research(research.ResearchRequest(\n                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/app/dark-champion/services/research/app.py\", line 263, in run_research\n    result = await synthesize(request.question, retrieved)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/app/dark-champion/services/research/app.py\", line 193, in synthesize\n    used = validate_citations(answer, context[\"citations\"])\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/app/dark-champion/services/research/context.py\", line 61, in validate_citations\n    if not identifiers: raise ValueError('Research answer has no evidence citations')\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nValueError: Research answer has no evidence citations\n"
+}

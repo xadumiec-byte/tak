@@ -1,0 +1,31 @@
+{
+  "status": "PASS",
+  "source_hash": "5a86be3497edd7a44ea824b22028c1c742921ea55be884bfe37044ba186a4594",
+  "marker": "6b4589c79a16409582a79c1cc7beca76",
+  "stages": [
+    {
+      "stage": "write",
+      "redis": true,
+      "qdrant_dense_sparse": true,
+      "sqlite_fixture": true,
+      "volume_mounted": true,
+      "clean_shutdown": {
+        "databases_stopped": true,
+        "timestamp": 1791387337.7691042
+      }
+    },
+    {
+      "stage": "read",
+      "redis": true,
+      "qdrant_dense_sparse": true,
+      "sqlite_fixture": true,
+      "volume_mounted": true,
+      "clean_shutdown": {
+        "databases_stopped": true,
+        "timestamp": 1791387472.2831926
+      }
+    }
+  ],
+  "gpu_used": false,
+  "current_sandbox": null
+}

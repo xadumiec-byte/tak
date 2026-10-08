@@ -1,0 +1,226 @@
+{
+  "verdict": "REVISE",
+  "environment": "Linux-4.19.0-gvisor-x86_64-with-glibc2.35",
+  "gates": {
+    "gpu": {
+      "status": "PASS",
+      "detail": {
+        "name": "NVIDIA A100-SXM4-80GB",
+        "total_mib": 81920,
+        "used_mib": 74199,
+        "free_mib": 6954
+      },
+      "elapsed_s": 0.07305232199996681
+    },
+    "vram": {
+      "status": "PASS",
+      "detail": {
+        "name": "NVIDIA A100-SXM4-80GB",
+        "total_mib": 81920,
+        "used_mib": 74199,
+        "free_mib": 6954
+      },
+      "elapsed_s": 0.07305232199996681
+    },
+    "service_health": {
+      "status": "PASS",
+      "detail": {
+        "vllm": 200,
+        "gateway": 200,
+        "research": 200,
+        "embedding": 200,
+        "reranker": 200,
+        "sandbox": 200,
+        "crawler": 200,
+        "qdrant": 200,
+        "searxng": 200,
+        "open-webui": 200
+      },
+      "elapsed_s": 2.7737675500000023
+    },
+    "models": {
+      "status": "NOT TESTED",
+      "detail": "Not executed"
+    },
+    "completion": {
+      "status": "NOT TESTED",
+      "detail": "Not executed"
+    },
+    "streaming": {
+      "status": "NOT TESTED",
+      "detail": "Not executed"
+    },
+    "json_response": {
+      "status": "NOT TESTED",
+      "detail": "Not executed"
+    },
+    "concurrency": {
+      "status": "NOT TESTED",
+      "detail": "Not executed"
+    },
+    "execute_code": {
+      "status": "NOT TESTED",
+      "detail": "Not executed"
+    },
+    "sandbox_exception": {
+      "status": "NOT TESTED",
+      "detail": "Not executed"
+    },
+    "sandbox_timeout": {
+      "status": "NOT TESTED",
+      "detail": "Not executed"
+    },
+    "sandbox_output_limit": {
+      "status": "NOT TESTED",
+      "detail": "Not executed"
+    },
+    "sandbox_network": {
+      "status": "NOT TESTED",
+      "detail": "Not executed"
+    },
+    "sandbox_filesystem": {
+      "status": "NOT TESTED",
+      "detail": "Not executed"
+    },
+    "sandbox_child_cleanup": {
+      "status": "NOT TESTED",
+      "detail": "Not executed"
+    },
+    "research_lifecycle": {
+      "status": "NOT TESTED",
+      "detail": "Not executed"
+    },
+    "sandbox_memory": {
+      "status": "NOT TESTED",
+      "detail": "Not executed"
+    },
+    "sandbox_process_limit": {
+      "status": "NOT TESTED",
+      "detail": "Not executed"
+    },
+    "research_failure": {
+      "status": "NOT TESTED",
+      "detail": "Not executed"
+    },
+    "research_cancel": {
+      "status": "NOT TESTED",
+      "detail": "Not executed"
+    },
+    "hybrid_rag": {
+      "status": "NOT TESTED",
+      "detail": "Not executed"
+    },
+    "citations": {
+      "status": "NOT TESTED",
+      "detail": "Not executed"
+    },
+    "tool_execute_code": {
+      "status": "NOT TESTED",
+      "detail": "Not executed"
+    },
+    "tool_submit_research": {
+      "status": "NOT TESTED",
+      "detail": "Not executed"
+    },
+    "tool_research_status": {
+      "status": "NOT TESTED",
+      "detail": "Not executed"
+    },
+    "context_8K": {
+      "status": "NOT TESTED",
+      "detail": "Not executed"
+    },
+    "context_16K": {
+      "status": "NOT TESTED",
+      "detail": "Not executed"
+    },
+    "context_32K": {
+      "status": "NOT TESTED",
+      "detail": "Not executed"
+    },
+    "benchmark": {
+      "status": "NOT TESTED",
+      "detail": "Not executed"
+    },
+    "restart": {
+      "status": "NOT TESTED",
+      "detail": "Not executed"
+    },
+    "gpu_configuration_matrix": {
+      "status": "NOT TESTED",
+      "detail": "Not executed"
+    },
+    "prompt_injection": {
+      "status": "NOT TESTED",
+      "detail": "Not executed"
+    },
+    "agent_roundtrip": {
+      "status": "NOT TESTED",
+      "detail": "Not executed"
+    },
+    "redis_crash_recovery": {
+      "status": "PASS",
+      "detail": {
+        "status": "PASS",
+        "lease_ms": 120000,
+        "docker_before": {
+          "container_id": "b78612d22a5b4ded6a9caf8338d4700a15448c03813ad70d806b1aafa2901e84",
+          "started_at": "2026-10-07T16:12:58.407446047Z",
+          "restart_count": 0
+        },
+        "redis_before": "3b1afc8fa26c9ebafff097d883c29f4610e90aa3",
+        "redis_version": "7.4.11",
+        "job_id": "f5a7f99a-3357-4c05-9c6b-511cc8f8a4ae",
+        "phase": "DONE",
+        "aof_barrier": [
+          1,
+          0
+        ],
+        "original_attempt": 1,
+        "entry_id": "1791390324766-0",
+        "redis_fault": {
+          "container_id": "b78612d22a5b4ded6a9caf8338d4700a15448c03813ad70d806b1aafa2901e84",
+          "started_at": "2026-10-07T16:12:58.407446047Z",
+          "restart_count": 0,
+          "fault": "Docker SIGKILL",
+          "process_recovery": "explicit supervised service restart"
+        },
+        "redis_after": "55294a3bc4d161fa52f9f4fb13d5514173c3fe59",
+        "docker_after": {
+          "container_id": "b78612d22a5b4ded6a9caf8338d4700a15448c03813ad70d806b1aafa2901e84",
+          "started_at": "2026-10-07T16:25:29.395782616Z",
+          "restart_count": 0
+        },
+        "pending_restored": true,
+        "replacement_worker": {
+          "pid": 305,
+          "start": "32686"
+        },
+        "stale_completion_rejected": true,
+        "attempts": 2,
+        "state_history": [
+          "QUEUED",
+          "CLAIMED",
+          "RUNNING",
+          "CLAIMED",
+          "RUNNING",
+          "DONE"
+        ],
+        "pending_acknowledged": true,
+        "recovered_used_citations": [
+          "1"
+        ]
+      },
+      "elapsed_s": 189.34419214899998
+    }
+  },
+  "source_hash": "8d2a0e88dc8de6885d31fea60e418de06d732a6c551402e34f2c1d704aee3cad",
+  "deployment_target": "modal",
+  "note": "READY requires every gate, including restart and measured configuration matrix.",
+  "focused_gates": [
+    "gpu",
+    "redis_crash_recovery",
+    "service_health",
+    "vram"
+  ]
+}

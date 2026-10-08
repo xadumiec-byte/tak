@@ -1,0 +1,27 @@
+{
+  "timestamp_utc": "2026-10-06T23:02:32.907974+00:00",
+  "source_hash": "c98e8b88d62a0bb34daf9ead5c291151f0765bfb56ad22972950a599921910be",
+  "device": "DESKTOP-254M5GE",
+  "docker_server": "29.8.0",
+  "docker_start_fix": "Restored verified C:/ProgramData only in launcher process environment; no persistent OS setting changed",
+  "services": {
+    "redis": "PASS PONG",
+    "qdrant": "PASS healthz",
+    "searxng": "PASS HTTP 200 after SEARXNG_SECRET environment patch",
+    "sandbox_broker": "PASS healthy; completion, timeout, readonly filesystem, disabled network, auth401",
+    "crawler": {
+      "exit_code": 0,
+      "stdout": "PASS static extraction and script removal\n",
+      "stderr": "",
+      "health": "PASS static-no-browser inside isolated container",
+      "host_route": "Host HTTP refused on internal extraction network; preserve isolation; route pending"
+    }
+  },
+  "scope": "Local real Docker components; not full Colab acceptance",
+  "blockers": [
+    "Colab UI reports zero compute units and runtime shutdown imminent",
+    "Private authenticated route from Colab to local auxiliaries not yet configured"
+  ],
+  "patch": "docker-compose.yml searxng.environment.SEARXNG_SECRET references generated .env secret",
+  "secret_storage": ".env excluded from release; values not printed"
+}

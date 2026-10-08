@@ -1,0 +1,6 @@
+-r services/gateway/requirements.txt
+-r services/research/requirements.txt
+-r services/embedding/requirements.txt
+-r services/reranker/requirements.txt
+-r services/sandbox/requirements.txt
+-r requirements-dev.txt

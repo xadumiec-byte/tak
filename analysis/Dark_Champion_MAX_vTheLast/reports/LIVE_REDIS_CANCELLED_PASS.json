@@ -1,0 +1,252 @@
+{
+  "verdict": "REVISE",
+  "environment": "Linux-4.19.0-gvisor-x86_64-with-glibc2.35",
+  "gates": {
+    "gpu": {
+      "status": "PASS",
+      "detail": {
+        "name": "NVIDIA A100-SXM4-80GB",
+        "total_mib": 81920,
+        "used_mib": 74199,
+        "free_mib": 6954
+      },
+      "elapsed_s": 0.030488779999984672
+    },
+    "vram": {
+      "status": "PASS",
+      "detail": {
+        "name": "NVIDIA A100-SXM4-80GB",
+        "total_mib": 81920,
+        "used_mib": 74199,
+        "free_mib": 6954
+      },
+      "elapsed_s": 0.030488779999984672
+    },
+    "service_health": {
+      "status": "PASS",
+      "detail": {
+        "vllm": 200,
+        "gateway": 200,
+        "research": 200,
+        "embedding": 200,
+        "reranker": 200,
+        "sandbox": 200,
+        "crawler": 200,
+        "qdrant": 200,
+        "searxng": 200,
+        "open-webui": 200
+      },
+      "elapsed_s": 1.3527410400000122
+    },
+    "models": {
+      "status": "NOT TESTED",
+      "detail": "Not executed"
+    },
+    "completion": {
+      "status": "NOT TESTED",
+      "detail": "Not executed"
+    },
+    "streaming": {
+      "status": "NOT TESTED",
+      "detail": "Not executed"
+    },
+    "json_response": {
+      "status": "NOT TESTED",
+      "detail": "Not executed"
+    },
+    "concurrency": {
+      "status": "NOT TESTED",
+      "detail": "Not executed"
+    },
+    "execute_code": {
+      "status": "NOT TESTED",
+      "detail": "Not executed"
+    },
+    "sandbox_exception": {
+      "status": "NOT TESTED",
+      "detail": "Not executed"
+    },
+    "sandbox_timeout": {
+      "status": "NOT TESTED",
+      "detail": "Not executed"
+    },
+    "sandbox_output_limit": {
+      "status": "NOT TESTED",
+      "detail": "Not executed"
+    },
+    "sandbox_network": {
+      "status": "NOT TESTED",
+      "detail": "Not executed"
+    },
+    "sandbox_filesystem": {
+      "status": "NOT TESTED",
+      "detail": "Not executed"
+    },
+    "sandbox_child_cleanup": {
+      "status": "NOT TESTED",
+      "detail": "Not executed"
+    },
+    "research_lifecycle": {
+      "status": "NOT TESTED",
+      "detail": "Not executed"
+    },
+    "sandbox_memory": {
+      "status": "NOT TESTED",
+      "detail": "Not executed"
+    },
+    "sandbox_process_limit": {
+      "status": "NOT TESTED",
+      "detail": "Not executed"
+    },
+    "research_failure": {
+      "status": "NOT TESTED",
+      "detail": "Not executed"
+    },
+    "research_cancel": {
+      "status": "PASS",
+      "detail": {
+        "status": "CANCELLED",
+        "attempt": "1",
+        "state_history": [
+          "QUEUED",
+          "CLAIMED",
+          "RUNNING",
+          "CANCELLED"
+        ]
+      },
+      "elapsed_s": 1.3509974989999876
+    },
+    "hybrid_rag": {
+      "status": "NOT TESTED",
+      "detail": "Not executed"
+    },
+    "citations": {
+      "status": "NOT TESTED",
+      "detail": "Not executed"
+    },
+    "tool_execute_code": {
+      "status": "NOT TESTED",
+      "detail": "Not executed"
+    },
+    "tool_submit_research": {
+      "status": "PASS",
+      "detail": {
+        "tool_call": {
+          "id": "chatcmpl-tool-acf68b02925b1d52",
+          "type": "function",
+          "function": {
+            "name": "submit_research",
+            "arguments": "{\"question\": \"What are the main features of Python asyncio and how can it be used for asynchronous programming?\"}"
+          }
+        },
+        "tool_result": {
+          "job_id": "5f187b46-c7d9-4640-b2be-8e3eb0739edd",
+          "status": "QUEUED"
+        },
+        "final_answer": "```json\n{\n  \"name\": \"check_research_status\",\n  \"arguments\": {\n    \"job_id\": \"5f187b46-c7d9-4640-b2be-8e3eb0739edd\"\n  }\n}\n```"
+      },
+      "elapsed_s": 3.5567209849999983
+    },
+    "tool_research_status": {
+      "status": "NOT TESTED",
+      "detail": "Not executed"
+    },
+    "context_8K": {
+      "status": "NOT TESTED",
+      "detail": "Not executed"
+    },
+    "context_16K": {
+      "status": "NOT TESTED",
+      "detail": "Not executed"
+    },
+    "context_32K": {
+      "status": "NOT TESTED",
+      "detail": "Not executed"
+    },
+    "benchmark": {
+      "status": "NOT TESTED",
+      "detail": "Not executed"
+    },
+    "restart": {
+      "status": "NOT TESTED",
+      "detail": "Not executed"
+    },
+    "gpu_configuration_matrix": {
+      "status": "NOT TESTED",
+      "detail": "Not executed"
+    },
+    "prompt_injection": {
+      "status": "NOT TESTED",
+      "detail": "Not executed"
+    },
+    "agent_roundtrip": {
+      "status": "NOT TESTED",
+      "detail": "Not executed"
+    },
+    "redis_crash_recovery": {
+      "status": "PASS",
+      "detail": {
+        "status": "PASS",
+        "lease_ms": 120000,
+        "docker_before": {
+          "container_id": "c829dddec8fae89bc3999e45fe0d7b9374cff6f7b3681de12c98642fbeb8cf94",
+          "started_at": "2026-10-07T15:12:04.144318273Z",
+          "restart_count": 0
+        },
+        "redis_before": "b3df905eb7879b98de84487c81f40b154f8a0fd3",
+        "redis_version": "7.4.11",
+        "job_id": "3819d9d9-ff39-47b1-9782-109db4e6bbd2",
+        "phase": "DONE",
+        "aof_barrier": [
+          1,
+          0
+        ],
+        "original_attempt": 1,
+        "entry_id": "1791386346974-0",
+        "redis_fault": {
+          "container_id": "c829dddec8fae89bc3999e45fe0d7b9374cff6f7b3681de12c98642fbeb8cf94",
+          "started_at": "2026-10-07T15:12:04.144318273Z",
+          "restart_count": 0,
+          "fault": "Docker SIGKILL",
+          "process_recovery": "explicit supervised service restart"
+        },
+        "redis_after": "76f76e80abb8934e9cce6d98edb23abed67a79f7",
+        "docker_after": {
+          "container_id": "c829dddec8fae89bc3999e45fe0d7b9374cff6f7b3681de12c98642fbeb8cf94",
+          "started_at": "2026-10-07T15:19:10.377678825Z",
+          "restart_count": 0
+        },
+        "pending_restored": true,
+        "replacement_worker": {
+          "pid": 332,
+          "start": "35837"
+        },
+        "stale_completion_rejected": true,
+        "attempts": 2,
+        "state_history": [
+          "QUEUED",
+          "CLAIMED",
+          "RUNNING",
+          "CLAIMED",
+          "RUNNING",
+          "DONE"
+        ],
+        "pending_acknowledged": true,
+        "recovered_used_citations": [
+          "1"
+        ]
+      },
+      "elapsed_s": 267.250123293
+    }
+  },
+  "source_hash": "53ce8b616c60a6189022e42392a0f34115276cdb23afdacbd40a8ddf0da223a1",
+  "note": "READY requires every gate, including restart and measured configuration matrix.",
+  "focused_gates": [
+    "gpu",
+    "redis_crash_recovery",
+    "research_cancel",
+    "service_health",
+    "tool_submit_research",
+    "vram"
+  ]
+}
