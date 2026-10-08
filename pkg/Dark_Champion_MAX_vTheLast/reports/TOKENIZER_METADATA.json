@@ -1,0 +1,9 @@
+{
+  "http_status": 200,
+  "revision": "b2cff646eb4bb1d68355c01b18ae02e7cf42d120",
+  "tokenizer_class": "Qwen2Tokenizer",
+  "model_max_length": 1048576,
+  "chat_template_sha256": "5a38bfa05833266240066aedc497decc9b00cc0d3e3b8cceea98cf530196ab06",
+  "xml_tool_call_template": true,
+  "runtime_tool_parser": "NOT TESTED"
+}

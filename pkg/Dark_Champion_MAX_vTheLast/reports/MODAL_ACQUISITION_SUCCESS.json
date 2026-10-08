@@ -1,0 +1,69 @@
+{
+  "question": "According to https://docs.python.org/3/library/asyncio.html what is asyncio used for?",
+  "queries": [
+    {
+      "query": "What are the primary use cases of asyncio in Python 3, as described in the official asyncio documentation?",
+      "raw_result_count": 20,
+      "unresponsive_engines": [
+        [
+          "brave",
+          "too many requests"
+        ],
+        [
+          "duckduckgo",
+          "CAPTCHA"
+        ]
+      ],
+      "accepted_urls": [
+        "https://docs.python.org/3/library/asyncio.html",
+        "https://realpython.com/async-io-python/"
+      ],
+      "fetched": [
+        {
+          "url": "https://docs.python.org/3/library/asyncio.html",
+          "html_chars": 25399,
+          "extracted_chars": 7824
+        },
+        {
+          "url": "https://realpython.com/async-io-python/",
+          "error": "Traceback (most recent call last):\n  File \"/app/dark-champion/scripts/research_diagnostic.py\", line 31, in main\n    html, url = await research.fetch_html(source.url)\n                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/app/dark-champion/services/research/safe_fetch.py\", line 69, in fetch_html\n    if response.status!=200: raise ValueError('Crawl HTTP status '+str(response.status))\n                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nValueError: Crawl HTTP status 403\n"
+        }
+      ]
+    },
+    {
+      "query": "How does asyncio facilitate asynchronous programming in Python, based on recent authoritative sources?",
+      "raw_result_count": 20,
+      "unresponsive_engines": [
+        [
+          "brave",
+          "Suspended: too many requests"
+        ],
+        [
+          "duckduckgo",
+          "CAPTCHA"
+        ],
+        [
+          "wikidata",
+          "timeout"
+        ]
+      ],
+      "accepted_urls": [
+        "https://www.reddit.com/r/Python/comments/11zsr7f/is_it_a_good_time_to_use_asyncio/",
+        "https://virtualtour.texaschildrens.org/Resources/BaShGz/7TW287/crash_course__a-hands__on.pdf"
+      ],
+      "fetched": [
+        {
+          "url": "https://www.reddit.com/r/Python/comments/11zsr7f/is_it_a_good_time_to_use_asyncio/",
+          "html_chars": 8456,
+          "extracted_chars": 1
+        },
+        {
+          "url": "https://virtualtour.texaschildrens.org/Resources/BaShGz/7TW287/crash_course__a-hands__on.pdf",
+          "html_chars": 1041,
+          "extracted_chars": 49
+        }
+      ]
+    }
+  ],
+  "status": "DIAGNOSTIC"
+}

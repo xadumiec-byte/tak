@@ -1,0 +1,113 @@
+INFO:     Started server process [36]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8090 (Press CTRL+C to quit)
+INFO:     127.0.0.1:37541 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48264 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:25538 - "POST /research HTTP/1.1" 200 OK
+INFO:     127.0.0.1:25538 - "GET /research/2cb9da49-9d2a-4e35-ae94-6fcffd145b1c HTTP/1.1" 200 OK
+INFO:     127.0.0.1:25538 - "GET /research/2cb9da49-9d2a-4e35-ae94-6fcffd145b1c HTTP/1.1" 200 OK
+INFO:     127.0.0.1:25538 - "GET /research/2cb9da49-9d2a-4e35-ae94-6fcffd145b1c HTTP/1.1" 200 OK
+INFO:     127.0.0.1:25538 - "GET /research/2cb9da49-9d2a-4e35-ae94-6fcffd145b1c HTTP/1.1" 200 OK
+INFO:     127.0.0.1:25538 - "GET /research/2cb9da49-9d2a-4e35-ae94-6fcffd145b1c HTTP/1.1" 200 OK
+INFO:     127.0.0.1:25538 - "GET /research/2cb9da49-9d2a-4e35-ae94-6fcffd145b1c HTTP/1.1" 200 OK
+INFO:     127.0.0.1:25538 - "GET /research/2cb9da49-9d2a-4e35-ae94-6fcffd145b1c HTTP/1.1" 200 OK
+INFO:     127.0.0.1:25538 - "GET /research/2cb9da49-9d2a-4e35-ae94-6fcffd145b1c HTTP/1.1" 200 OK
+INFO:     127.0.0.1:25538 - "GET /research/2cb9da49-9d2a-4e35-ae94-6fcffd145b1c HTTP/1.1" 200 OK
+INFO:     127.0.0.1:25538 - "GET /research/2cb9da49-9d2a-4e35-ae94-6fcffd145b1c HTTP/1.1" 200 OK
+INFO:     127.0.0.1:25538 - "GET /research/2cb9da49-9d2a-4e35-ae94-6fcffd145b1c HTTP/1.1" 200 OK
+INFO:     127.0.0.1:25538 - "GET /research/2cb9da49-9d2a-4e35-ae94-6fcffd145b1c HTTP/1.1" 200 OK
+INFO:     127.0.0.1:25538 - "GET /research/2cb9da49-9d2a-4e35-ae94-6fcffd145b1c HTTP/1.1" 200 OK
+INFO:     127.0.0.1:25538 - "GET /research/2cb9da49-9d2a-4e35-ae94-6fcffd145b1c HTTP/1.1" 200 OK
+INFO:     127.0.0.1:25538 - "GET /research/2cb9da49-9d2a-4e35-ae94-6fcffd145b1c HTTP/1.1" 200 OK
+INFO:     127.0.0.1:25538 - "GET /research/2cb9da49-9d2a-4e35-ae94-6fcffd145b1c HTTP/1.1" 200 OK
+INFO:     127.0.0.1:25538 - "GET /research/2cb9da49-9d2a-4e35-ae94-6fcffd145b1c HTTP/1.1" 200 OK
+INFO:     127.0.0.1:25538 - "GET /research/2cb9da49-9d2a-4e35-ae94-6fcffd145b1c HTTP/1.1" 200 OK
+INFO:     127.0.0.1:25538 - "GET /research/2cb9da49-9d2a-4e35-ae94-6fcffd145b1c HTTP/1.1" 200 OK
+INFO:     127.0.0.1:25538 - "GET /research/2cb9da49-9d2a-4e35-ae94-6fcffd145b1c HTTP/1.1" 200 OK
+INFO:     127.0.0.1:25538 - "GET /research/2cb9da49-9d2a-4e35-ae94-6fcffd145b1c HTTP/1.1" 200 OK
+INFO:     127.0.0.1:25538 - "GET /research/2cb9da49-9d2a-4e35-ae94-6fcffd145b1c HTTP/1.1" 200 OK
+INFO:     127.0.0.1:25538 - "GET /research/2cb9da49-9d2a-4e35-ae94-6fcffd145b1c HTTP/1.1" 200 OK
+INFO:     127.0.0.1:25538 - "GET /research/2cb9da49-9d2a-4e35-ae94-6fcffd145b1c HTTP/1.1" 200 OK
+INFO:     127.0.0.1:25538 - "GET /research/2cb9da49-9d2a-4e35-ae94-6fcffd145b1c HTTP/1.1" 200 OK
+INFO:     127.0.0.1:25538 - "GET /research/2cb9da49-9d2a-4e35-ae94-6fcffd145b1c HTTP/1.1" 200 OK
+INFO:     127.0.0.1:25538 - "GET /research/2cb9da49-9d2a-4e35-ae94-6fcffd145b1c HTTP/1.1" 200 OK
+INFO:     127.0.0.1:25538 - "GET /research/2cb9da49-9d2a-4e35-ae94-6fcffd145b1c HTTP/1.1" 200 OK
+INFO:     127.0.0.1:25538 - "GET /research/2cb9da49-9d2a-4e35-ae94-6fcffd145b1c HTTP/1.1" 200 OK
+INFO:     127.0.0.1:25538 - "GET /research/2cb9da49-9d2a-4e35-ae94-6fcffd145b1c HTTP/1.1" 200 OK
+INFO:     127.0.0.1:25538 - "GET /research/2cb9da49-9d2a-4e35-ae94-6fcffd145b1c HTTP/1.1" 200 OK
+INFO:     127.0.0.1:25538 - "GET /research/0b49749b-08fe-4469-957e-70a0dd52171d HTTP/1.1" 200 OK
+INFO:     127.0.0.1:25538 - "GET /research/0b49749b-08fe-4469-957e-70a0dd52171d HTTP/1.1" 200 OK
+INFO:     127.0.0.1:25538 - "POST /research HTTP/1.1" 200 OK
+INFO:     127.0.0.1:25538 - "DELETE /research/65cb6cc0-24c6-4d03-a16b-0c3b0b19edfb HTTP/1.1" 200 OK
+INFO:     127.0.0.1:25538 - "GET /research/65cb6cc0-24c6-4d03-a16b-0c3b0b19edfb HTTP/1.1" 200 OK
+INFO:     127.0.0.1:28044 - "POST /research HTTP/1.1" 200 OK
+INFO:     127.0.0.1:28044 - "DELETE /research/72adec08-d478-4a97-a286-c8f01721d623 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:28044 - "GET /research/2cb9da49-9d2a-4e35-ae94-6fcffd145b1c HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64782 - "POST /research HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [36]
+INFO:     Started server process [472]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8090 (Press CTRL+C to quit)
+INFO:     127.0.0.1:40828 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56976 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:42251 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58295 - "POST /research HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58295 - "GET /research/6fddabb1-22de-4f6c-94b4-e7674413f5cb HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58295 - "GET /research/6fddabb1-22de-4f6c-94b4-e7674413f5cb HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58295 - "GET /research/6fddabb1-22de-4f6c-94b4-e7674413f5cb HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58295 - "GET /research/6fddabb1-22de-4f6c-94b4-e7674413f5cb HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58295 - "GET /research/6fddabb1-22de-4f6c-94b4-e7674413f5cb HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58295 - "GET /research/6fddabb1-22de-4f6c-94b4-e7674413f5cb HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58295 - "GET /research/6fddabb1-22de-4f6c-94b4-e7674413f5cb HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58295 - "GET /research/6fddabb1-22de-4f6c-94b4-e7674413f5cb HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58295 - "GET /research/6fddabb1-22de-4f6c-94b4-e7674413f5cb HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58295 - "GET /research/6fddabb1-22de-4f6c-94b4-e7674413f5cb HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58295 - "GET /research/6fddabb1-22de-4f6c-94b4-e7674413f5cb HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58295 - "GET /research/6fddabb1-22de-4f6c-94b4-e7674413f5cb HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58295 - "GET /research/6fddabb1-22de-4f6c-94b4-e7674413f5cb HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58295 - "GET /research/6fddabb1-22de-4f6c-94b4-e7674413f5cb HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58295 - "GET /research/6fddabb1-22de-4f6c-94b4-e7674413f5cb HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58295 - "GET /research/6fddabb1-22de-4f6c-94b4-e7674413f5cb HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58295 - "GET /research/6fddabb1-22de-4f6c-94b4-e7674413f5cb HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58295 - "GET /research/6fddabb1-22de-4f6c-94b4-e7674413f5cb HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58295 - "GET /research/6fddabb1-22de-4f6c-94b4-e7674413f5cb HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58295 - "GET /research/6fddabb1-22de-4f6c-94b4-e7674413f5cb HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58295 - "GET /research/6fddabb1-22de-4f6c-94b4-e7674413f5cb HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58295 - "GET /research/6fddabb1-22de-4f6c-94b4-e7674413f5cb HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58295 - "GET /research/6fddabb1-22de-4f6c-94b4-e7674413f5cb HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58295 - "GET /research/6fddabb1-22de-4f6c-94b4-e7674413f5cb HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58295 - "GET /research/6fddabb1-22de-4f6c-94b4-e7674413f5cb HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58295 - "GET /research/6fddabb1-22de-4f6c-94b4-e7674413f5cb HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58295 - "GET /research/6fddabb1-22de-4f6c-94b4-e7674413f5cb HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58295 - "GET /research/6fddabb1-22de-4f6c-94b4-e7674413f5cb HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58295 - "GET /research/6fddabb1-22de-4f6c-94b4-e7674413f5cb HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58295 - "GET /research/6fddabb1-22de-4f6c-94b4-e7674413f5cb HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58295 - "GET /research/6fddabb1-22de-4f6c-94b4-e7674413f5cb HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58295 - "GET /research/8b5ea8e9-a5ae-4c4d-802e-6859ff469b4f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58295 - "GET /research/8b5ea8e9-a5ae-4c4d-802e-6859ff469b4f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58295 - "POST /research HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58295 - "DELETE /research/ac9958a1-2c69-4f30-82c8-6ec6e42d4ef2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58295 - "GET /research/ac9958a1-2c69-4f30-82c8-6ec6e42d4ef2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:24349 - "POST /research HTTP/1.1" 200 OK
+INFO:     127.0.0.1:24349 - "DELETE /research/1fb43c3f-8f2b-4959-b1f0-278b37353f69 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:24349 - "GET /research/6fddabb1-22de-4f6c-94b4-e7674413f5cb HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51897 - "POST /research HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [472]
+INFO:     Started server process [874]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8090 (Press CTRL+C to quit)
+INFO:     127.0.0.1:19898 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:24343 - "GET /health HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [874]

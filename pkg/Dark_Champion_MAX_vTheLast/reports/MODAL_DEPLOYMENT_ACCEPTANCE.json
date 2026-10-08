@@ -1,0 +1,30 @@
+{
+  "status": "PASS",
+  "source_hash": "0262b4ace65ffdf33f88a18db80c9c780e2b0b97f18454212052a3b73bd2b0a5",
+  "url": "https://adamoyt3--dark-champion-max-serve.modal.run",
+  "gates": {
+    "models": {
+      "status": "PASS",
+      "elapsed_s": 176.4412455000056,
+      "model_ids": [
+        "dark-general",
+        "dark-code",
+        "dark-reason",
+        "dark-max",
+        "dark-research"
+      ]
+    },
+    "auth": {
+      "status": "PASS",
+      "missing_and_invalid_key_status": 401
+    },
+    "completion": {
+      "status": "PASS",
+      "elapsed_s": 0.8802647999982582,
+      "answer": "modal-live-ok"
+    }
+  },
+  "deployment_id": "ap-Jk48rUaUWGS2AnBK1zmRfJ",
+  "deployed_at_utc": "2026-10-08T00:24:28.012738+00:00",
+  "deployment_state": "deployed; GPU container scales from zero on demand"
+}

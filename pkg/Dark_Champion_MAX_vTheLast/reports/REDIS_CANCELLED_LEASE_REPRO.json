@@ -1,0 +1,12 @@
+{
+  "job_id": "a6eff433-cc91-4194-9005-30077b909dd3",
+  "status": "CANCELLED",
+  "pending": [
+    {
+      "message_id": "1791385417915-0",
+      "consumer": "415-ca0baf65-cc0c-4183-9cc0-9529130c72eb",
+      "time_since_delivered": 212,
+      "times_delivered": 1
+    }
+  ]
+}

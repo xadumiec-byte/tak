@@ -1,0 +1,76 @@
+{
+  "timestamp_utc": "2026-10-06T23:30:14.967699+00:00",
+  "source_hash": "047b033d7934cf7c95f663c8d364b4ca039d39121eff6b98e4c2eee84ac12e07",
+  "verdict": "REVISE",
+  "target": "Modal Linux A100-40GB",
+  "implemented": [
+    "SDK 1.6.1 deployment adapter",
+    "Pinned separate inference/control images",
+    "Filtered source upload excluding credentials/reports/cache",
+    "Persistent models and source-hash report volumes",
+    "Native runtime reuse and explicit gateway host",
+    "Canonical baseline before matrix",
+    "Measured Modal detector"
+  ],
+  "unimplemented": [
+    "Move auxiliary Docker stack into Modal CPU VM",
+    "Private route/authenticated external auxiliary endpoints",
+    "All mandatory Modal live gates",
+    "Remote full runtime build/deploy"
+  ],
+  "account": {
+    "workspace": "adamoyt3",
+    "created_with_user_terms_authorization": true,
+    "actual_credit_usd": 30,
+    "payment_method_added": false,
+    "api_token_created": true,
+    "cloud_execution": "Bounded GPU detection PASS; app stopped",
+    "policy": "Available free credits only; no purchases",
+    "token_profile": "dark-champion",
+    "token_lifetime_hours": 12,
+    "token_storage": "C:/Users/adamo/.modal.toml outside project"
+  },
+  "tests": {
+    "focused": "15 passed",
+    "full_regression": "56 passed; one existing anyio deprecation warning",
+    "sdk_import": "PASS"
+  },
+  "sources": {
+    "gpu": {
+      "url": "https://modal.com/docs/guide/gpu",
+      "facts": [
+        "A100-40GB supported",
+        "GPU access requires valid payment method"
+      ]
+    },
+    "vm": {
+      "url": "https://modal.com/docs/guide/sandboxes",
+      "facts": [
+        "runtime=vm supports Docker",
+        "GPU sandboxes only gvisor"
+      ]
+    },
+    "web_server": "https://modal.com/docs/sdk/py/latest/web_server",
+    "image": "https://modal.com/docs/sdk/py/latest/Image",
+    "app": "https://modal.com/docs/sdk/py/latest/App",
+    "secrets": "https://modal.com/docs/guide/secrets",
+    "volumes": "https://modal.com/docs/guide/volumes",
+    "pricing": "https://modal.com/pricing"
+  },
+  "blocker": "GPU account blocker resolved. REVISE: auxiliary CPU VM migration and authenticated routing incomplete; runtime secret/build and mandatory model live gates pending.",
+  "screenshot": "reports/MODAL_ACCOUNT_CREDITS.png",
+  "gpu_access_probe": {
+    "timestamp_utc": "2026-10-06T23:30:14.967699+00:00",
+    "status": "PASS",
+    "exit_code": 0,
+    "gpu": "NVIDIA A100-SXM4-40GB",
+    "memory_mib": 40960,
+    "driver": "580.95.05",
+    "gpu_executed": true,
+    "run_url": "https://modal.com/apps/adamoyt3/main/ap-2prG44qvwuGU4ZYcaywpVT",
+    "dashboard_credit_usd_observed": 30,
+    "scope": "GPU access only; no model/live acceptance or benchmark",
+    "probe_fix": "include_source=True for single isolated probe module",
+    "app_stopped": true
+  }
+}

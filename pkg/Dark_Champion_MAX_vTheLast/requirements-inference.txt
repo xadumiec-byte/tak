@@ -1,0 +1,2 @@
+# Verified release metadata; GPU/CUDA wheel compatibility requires live preflight.
+vllm==0.31.0

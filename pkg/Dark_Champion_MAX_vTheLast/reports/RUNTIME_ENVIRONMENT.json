@@ -1,0 +1,16 @@
+{
+  "timestamp_utc": "2026-10-07T23:50:35.774395+00:00",
+  "classification": "MODAL_A100",
+  "system": "Linux",
+  "platform": "Linux-4.19.0-gvisor-x86_64-with-glibc2.35",
+  "python": "3.12.1",
+  "executable": "/opt/control/bin/python",
+  "is_colab": false,
+  "is_modal": true,
+  "gpu": {
+    "available": true,
+    "name": "NVIDIA A100 80GB PCIe",
+    "memory_mb": 81920,
+    "driver_version": "580.95.05"
+  }
+}

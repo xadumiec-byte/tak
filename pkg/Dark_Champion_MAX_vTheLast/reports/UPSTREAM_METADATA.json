@@ -1,0 +1,102 @@
+{
+  "vllm-project/vllm": {
+    "status": 200,
+    "tag": "v0.31.0"
+  },
+  "open-webui/open-webui": {
+    "status": 200,
+    "tag": "v0.11.4"
+  },
+  "qdrant/qdrant": {
+    "status": 200,
+    "tag": "v1.19.2"
+  },
+  "unclecode/crawl4ai": {
+    "status": 200,
+    "tag": "v0.9.4"
+  },
+  "qwen_config": {
+    "architectures": [
+      "Qwen3MoeForCausalLM"
+    ],
+    "attention_bias": false,
+    "attention_dropout": 0.0,
+    "bos_token_id": 151643,
+    "decoder_sparse_step": 1,
+    "eos_token_id": 151645,
+    "head_dim": 128,
+    "hidden_act": "silu",
+    "hidden_size": 2048,
+    "initializer_range": 0.02,
+    "intermediate_size": 6144,
+    "max_position_embeddings": 262144,
+    "max_window_layers": 48,
+    "mlp_only_layers": [],
+    "model_type": "qwen3_moe",
+    "moe_intermediate_size": 768,
+    "norm_topk_prob": true,
+    "num_attention_heads": 32,
+    "num_experts": 128,
+    "num_experts_per_tok": 8,
+    "num_hidden_layers": 48,
+    "num_key_value_heads": 4,
+    "output_router_logits": false,
+    "rms_norm_eps": 1e-06,
+    "rope_scaling": null,
+    "rope_theta": 10000000,
+    "router_aux_loss_coef": 0.001,
+    "sliding_window": null,
+    "tie_word_embeddings": false,
+    "torch_dtype": "bfloat16",
+    "transformers_version": "4.52.3",
+    "use_cache": true,
+    "use_sliding_window": false,
+    "vocab_size": 151936
+  },
+  "qwen_metadata": {
+    "revision": "b2cff646eb4bb1d68355c01b18ae02e7cf42d120",
+    "parameters": 30532122624,
+    "dtype": "BF16",
+    "access": "public, ungated"
+  },
+  "Qwen/Qwen3-Coder-30B-A3B-Instruct": {
+    "http_status": 200,
+    "revision": "b2cff646eb4bb1d68355c01b18ae02e7cf42d120",
+    "gated": false,
+    "license": "apache-2.0",
+    "safetensors": {
+      "parameters": {
+        "BF16": 30532122624
+      },
+      "total": 30532122624
+    },
+    "checkpoint_bytes": 61066575656
+  },
+  "BAAI/bge-m3": {
+    "http_status": 200,
+    "revision": "5617a9f61b028005a4858fdac845db406aefb181",
+    "gated": false,
+    "license": "mit",
+    "safetensors": null,
+    "checkpoint_bytes": 0
+  },
+  "BAAI/bge-reranker-v2-m3": {
+    "http_status": 200,
+    "revision": "953dc6f6f85a1b2dbfca4c34a2796e7dde08d41e",
+    "gated": false,
+    "license": "apache-2.0",
+    "safetensors": {
+      "parameters": {
+        "F32": 567755777
+      },
+      "total": 567755777
+    },
+    "checkpoint_bytes": 2271071852
+  },
+  "uv": {
+    "version": "0.12.23"
+  },
+  "qdrant-client": {
+    "version": "1.19.1"
+  }
+}

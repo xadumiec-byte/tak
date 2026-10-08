@@ -1,0 +1,27 @@
+{
+  "timestamp_utc": "2026-10-06T23:23:12.999793+00:00",
+  "status": "PASS",
+  "command": "modal run .run/modal_gpu_probe.py",
+  "exit_code": 1,
+  "error_type": "InvalidError",
+  "exact_error": "Please add a payment method to use A100-40GB GPU functions.",
+  "run_url": "https://modal.com/apps/adamoyt3/main/ap-4qCYWnNYx8zJzob1yRo1Ew",
+  "gpu_executed": false,
+  "credentials_recorded": false,
+  "cli_profile_verified": true,
+  "terminal_fix": "PYTHONUTF8=1 and PYTHONIOENCODING=utf-8 in child process only",
+  "latest_recheck": {
+    "timestamp_utc": "2026-10-06T23:30:14.967699+00:00",
+    "status": "PASS",
+    "exit_code": 0,
+    "gpu": "NVIDIA A100-SXM4-40GB",
+    "memory_mib": 40960,
+    "driver": "580.95.05",
+    "gpu_executed": true,
+    "run_url": "https://modal.com/apps/adamoyt3/main/ap-2prG44qvwuGU4ZYcaywpVT",
+    "dashboard_credit_usd_observed": 30,
+    "scope": "GPU access only; no model/live acceptance or benchmark",
+    "probe_fix": "include_source=True for single isolated probe module",
+    "app_stopped": true
+  }
+}

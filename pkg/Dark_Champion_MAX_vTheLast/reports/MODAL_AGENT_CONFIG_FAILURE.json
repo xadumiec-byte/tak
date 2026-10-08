@@ -1,0 +1,269 @@
+{
+  "verdict": "REVISE",
+  "environment": "Linux-4.19.0-gvisor-x86_64-with-glibc2.35",
+  "gates": {
+    "gpu": {
+      "status": "PASS",
+      "detail": {
+        "name": "NVIDIA A100-SXM4-80GB",
+        "total_mib": 81920,
+        "used_mib": 74246,
+        "free_mib": 6908
+      },
+      "elapsed_s": 0.03816824299997279
+    },
+    "vram": {
+      "status": "PASS",
+      "detail": {
+        "name": "NVIDIA A100-SXM4-80GB",
+        "total_mib": 81920,
+        "used_mib": 74246,
+        "free_mib": 6908
+      },
+      "elapsed_s": 0.03816824299997279
+    },
+    "service_health": {
+      "status": "PASS",
+      "detail": {
+        "vllm": 200,
+        "gateway": 200,
+        "research": 200,
+        "embedding": 200,
+        "reranker": 200,
+        "sandbox": 200,
+        "crawler": 200,
+        "qdrant": 200,
+        "searxng": 200,
+        "open-webui": 200
+      },
+      "elapsed_s": 1.2354960119999987
+    },
+    "models": {
+      "status": "NOT TESTED",
+      "detail": "Not executed"
+    },
+    "completion": {
+      "status": "NOT TESTED",
+      "detail": "Not executed"
+    },
+    "streaming": {
+      "status": "NOT TESTED",
+      "detail": "Not executed"
+    },
+    "json_response": {
+      "status": "NOT TESTED",
+      "detail": "Not executed"
+    },
+    "concurrency": {
+      "status": "NOT TESTED",
+      "detail": "Not executed"
+    },
+    "execute_code": {
+      "status": "NOT TESTED",
+      "detail": "Not executed"
+    },
+    "sandbox_exception": {
+      "status": "NOT TESTED",
+      "detail": "Not executed"
+    },
+    "sandbox_timeout": {
+      "status": "NOT TESTED",
+      "detail": "Not executed"
+    },
+    "sandbox_output_limit": {
+      "status": "NOT TESTED",
+      "detail": "Not executed"
+    },
+    "sandbox_network": {
+      "status": "NOT TESTED",
+      "detail": "Not executed"
+    },
+    "sandbox_filesystem": {
+      "status": "NOT TESTED",
+      "detail": "Not executed"
+    },
+    "sandbox_child_cleanup": {
+      "status": "NOT TESTED",
+      "detail": "Not executed"
+    },
+    "research_lifecycle": {
+      "status": "PASS",
+      "detail": {
+        "job_id": "b3b9eafe-f5f3-4765-84c3-3648b2ae754d",
+        "observed_states": [
+          "QUEUED",
+          "RUNNING",
+          "DONE"
+        ],
+        "durable_transitions": [
+          "QUEUED",
+          "CLAIMED",
+          "RUNNING",
+          "DONE"
+        ]
+      },
+      "elapsed_s": 33.288453005000065
+    },
+    "sandbox_memory": {
+      "status": "NOT TESTED",
+      "detail": "Not executed"
+    },
+    "sandbox_process_limit": {
+      "status": "NOT TESTED",
+      "detail": "Not executed"
+    },
+    "research_failure": {
+      "status": "NOT TESTED",
+      "detail": "Not executed"
+    },
+    "research_cancel": {
+      "status": "NOT TESTED",
+      "detail": "Not executed"
+    },
+    "hybrid_rag": {
+      "status": "NOT TESTED",
+      "detail": "Not executed"
+    },
+    "citations": {
+      "status": "NOT TESTED",
+      "detail": "Not executed"
+    },
+    "tool_execute_code": {
+      "status": "NOT TESTED",
+      "detail": "Not executed"
+    },
+    "tool_submit_research": {
+      "status": "PASS",
+      "detail": {
+        "tool_call": {
+          "id": "chatcmpl-tool-9522a4278a4289bf",
+          "type": "function",
+          "function": {
+            "name": "submit_research",
+            "arguments": "{\"question\": \"How can I effectively use asyncio in Python for building concurrent applications?\"}"
+          }
+        },
+        "tool_result": {
+          "job_id": "14654e8a-7dab-4ef5-8774-3e9e599e4c48",
+          "status": "QUEUED"
+        },
+        "final_answer": "Your research request has been submitted. The job ID is 14654e8a-7dab-4ef5-8774-3e9e599e4c48. I will notify you once the results are available."
+      },
+      "elapsed_s": 2.851614134999977
+    },
+    "tool_research_status": {
+      "status": "PASS",
+      "detail": {
+        "tool_call": {
+          "id": "chatcmpl-tool-b2254010513e6b44",
+          "type": "function",
+          "function": {
+            "name": "research_status",
+            "arguments": "{\"job_id\": \"b3b9eafe-f5f3-4765-84c3-3648b2ae754d\"}"
+          }
+        },
+        "tool_result": {
+          "state_history": [
+            "QUEUED",
+            "CLAIMED",
+            "RUNNING",
+            "DONE"
+          ],
+          "status": "DONE",
+          "result": {
+            "answer": "According to the documentation [1], asyncio is a library used for writing concurrent code using the async/await syntax. It serves as a foundation for various Python asynchronous frameworks, which are used for high-performance network and web servers, database connection libraries, distributed task queues, and more. asyncio is particularly suitable for IO-bound and high-level structured network code [1].\n\nSources\n[1] https://docs.python.org/3/library/asyncio.html",
+            "citations": {
+              "1": {
+                "chunk_id": "cc52be53-280c-5efe-b435-a65f66643b2f",
+                "document_id": "87d2cce8-1cf0-5429-8820-76ea74bebebd",
+                "url": "https://docs.python.org/3/library/asyncio.html"
+              },
+              "2": {
+                "chunk_id": "0a5b8669-cf5e-581b-9e3e-eaebfd4a7dc9",
+                "document_id": "87d2cce8-1cf0-5429-8820-76ea74bebebd",
+                "url": "https://docs.python.org/3/library/asyncio.html"
+              },
+              "3": {
+                "chunk_id": "7ccdcc66-24c6-5bbe-87d5-1204f76a7dd1",
+                "document_id": "87d2cce8-1cf0-5429-8820-76ea74bebebd",
+                "url": "https://docs.python.org/3/library/asyncio.html"
+              }
+            },
+            "used_citations": [
+              "1"
+            ],
+            "context": {
+              "prompt_tokens": 2463,
+              "generation_reserve": 3500,
+              "estimator": "tokenizer"
+            },
+            "job_id": "b3b9eafe-f5f3-4765-84c3-3648b2ae754d",
+            "attempt_id": "d6fdcc25-5380-4ed4-b9d9-98c1900f8f6e",
+            "retrieval_mode": "dense+sparse+rrf+reranker",
+            "queries": [
+              "asyncio library official documentation use cases",
+              "recent authoritative papers on asyncio in Python"
+            ],
+            "source_count": 1,
+            "sources": [
+              {
+                "title": "https://docs.python.org/3/library/asyncio.html",
+                "url": "https://docs.python.org/3/library/asyncio.html"
+              }
+            ]
+          },
+          "attempt": "1"
+        },
+        "final_answer": "Job ID: b3b9eafe-f5f3-4765-84c3-3648b2ae754d\n\n**State History:**\n- QUEUED\n- CLAIMED\n- RUNNING\n- DONE\n\n**Status:**\n- DONE\n\n**Result:**\nAccording to the official documentation [1], asyncio is a library used for writing concurrent code using the async/await syntax. It serves as the foundation for various Python asynchronous frameworks, which are utilized for developing high-performance network and web servers, database connection libraries, distributed task queues, and more. asyncio is particularly well-suited for applications that involve IO-bound and high-level structured network code [1].\n\nSources:\n[1] https://docs.python.org/3/library/asyncio.html\n\n**Citations:**\n- [1] Document ID: 87d2cce8-1cf0-5429-8820-76ea74bebebd\n  - Chunk ID: cc52be53-280c-5efe-b435-a65f66643b2f\n  - URL: [https://docs.python.org/3/library/"
+      },
+      "elapsed_s": 6.482200613000032
+    },
+    "context_8K": {
+      "status": "NOT TESTED",
+      "detail": "Not executed"
+    },
+    "context_16K": {
+      "status": "NOT TESTED",
+      "detail": "Not executed"
+    },
+    "context_32K": {
+      "status": "NOT TESTED",
+      "detail": "Not executed"
+    },
+    "benchmark": {
+      "status": "NOT TESTED",
+      "detail": "Not executed"
+    },
+    "restart": {
+      "status": "NOT TESTED",
+      "detail": "Not executed"
+    },
+    "gpu_configuration_matrix": {
+      "status": "NOT TESTED",
+      "detail": "Not executed"
+    },
+    "prompt_injection": {
+      "status": "NOT TESTED",
+      "detail": "Not executed"
+    },
+    "agent_roundtrip": {
+      "status": "FAIL",
+      "detail": {
+        "error": "Client error '409 Conflict' for url 'http://127.0.0.1:8088/v1/agent/run'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/409",
+        "status_code": 409,
+        "response_body": "{\"detail\":\"Agent tool calling requires a verified parser configuration\"}"
+      }
+    }
+  },
+  "source_hash": "dc18d046efd99063349edcb985731788c151deee49def3cfd369efa391e6767b",
+  "note": "READY requires every gate, including restart and measured configuration matrix.",
+  "focused_gates": [
+    "agent_roundtrip",
+    "gpu",
+    "research_lifecycle",
+    "service_health",
+    "tool_research_status",
+    "tool_submit_research",
+    "vram"
+  ]
+}

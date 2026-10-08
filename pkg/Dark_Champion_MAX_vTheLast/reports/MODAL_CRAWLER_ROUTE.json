@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "root_cause": "Docker internal extraction network intentionally has no gateway and ignores published ports; NetworkSettings.Ports[11235/tcp] is null.",
+  "minimal_reproduction": "VM curl 127.0.0.1:11235 fails; container health and VM curl internal IP health return 200 static-no-browser.",
+  "patch": "Route only crawler SSH destination to its authenticated Docker-inspected private IP; keep extraction internal and no public crawler port.",
+  "focused_test": "Actual VM internal IP health PASS",
+  "source_hash": "e513993a14d4d3709c6ee89ff460f016c1d0f301e7f8e24bea7fd61a6f22b3a7",
+  "affected_regression": "10 Modal contract tests PASS",
+  "live_test": "GPU forwarded /health 200 static-no-browser"
+}

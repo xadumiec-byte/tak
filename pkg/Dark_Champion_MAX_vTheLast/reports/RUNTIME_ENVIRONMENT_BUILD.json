@@ -1,0 +1,14 @@
+{
+  "timestamp_utc": "2026-10-06T21:26:15.247008+00:00",
+  "classification": "LINUX_LOCAL",
+  "system": "Linux",
+  "platform": "Linux-6.18.44-x86_64-with-glibc2.41",
+  "python": "3.13.5",
+  "executable": "/opt/pyvenv/bin/python",
+  "is_colab": false,
+  "gpu": {
+    "available": false,
+    "name": null,
+    "memory_mb": null
+  }
+}
