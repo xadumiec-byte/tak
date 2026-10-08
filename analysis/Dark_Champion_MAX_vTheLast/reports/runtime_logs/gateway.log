@@ -1,0 +1,118 @@
+INFO:     Started server process [38]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8088 (Press CTRL+C to quit)
+INFO:     127.0.0.1:35803 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62496 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62496 - "GET /v1/models HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62496 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62496 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36124 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36124 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:19797 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:27364 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56342 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36124 - "POST /v1/tools/execute_code HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36124 - "POST /v1/tools/execute_code HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36124 - "POST /v1/tools/execute_code HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36124 - "POST /v1/tools/execute_code HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36124 - "POST /v1/tools/execute_code HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36124 - "POST /v1/tools/execute_code HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36124 - "POST /v1/tools/execute_code HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36124 - "POST /v1/tools/execute_code HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36124 - "POST /v1/tools/execute_code HTTP/1.1" 200 OK
+INFO:     127.0.0.1:47700 - "POST /v1/tools/execute_code HTTP/1.1" 200 OK
+INFO:     127.0.0.1:21616 - "POST /v1/agent/run HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62185 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55335 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:30900 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:30900 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56384 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:24602 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43556 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35646 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38728 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65532 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:28848 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [38]
+INFO:     Started server process [475]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8088 (Press CTRL+C to quit)
+INFO:     127.0.0.1:64375 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:24009 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50292 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50292 - "GET /v1/models HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50292 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50292 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62871 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62871 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:29182 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36333 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:34361 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62871 - "POST /v1/tools/execute_code HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62871 - "POST /v1/tools/execute_code HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62871 - "POST /v1/tools/execute_code HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62871 - "POST /v1/tools/execute_code HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62871 - "POST /v1/tools/execute_code HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62871 - "POST /v1/tools/execute_code HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62871 - "POST /v1/tools/execute_code HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62871 - "POST /v1/tools/execute_code HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62871 - "POST /v1/tools/execute_code HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44854 - "POST /v1/tools/execute_code HTTP/1.1" 200 OK
+INFO:     127.0.0.1:25888 - "POST /v1/agent/run HTTP/1.1" 200 OK
+INFO:     127.0.0.1:28421 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:42794 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58036 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58036 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37813 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35661 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35914 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48170 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64527 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:25664 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:16285 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [475]
+INFO:     Started server process [876]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8088 (Press CTRL+C to quit)
+INFO:     127.0.0.1:26359 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45553 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57742 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:25005 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:26847 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52662 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44475 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:46020 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36807 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:41812 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:41812 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:19781 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58924 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43951 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53453 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57816 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48187 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:31478 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58515 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58515 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45779 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45675 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39450 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:27537 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:17189 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:16923 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54911 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59995 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59995 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [876]

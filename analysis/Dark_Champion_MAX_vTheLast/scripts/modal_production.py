@@ -37,7 +37,13 @@ def route(sandbox):
                       '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}')
     return {'host':host,'port':port,'host_key':host_key,'crawler_host':crawler}
 
-def ensure_control(root):
+def desktop_route(sandbox):
+    """One authenticated SSH session plus a dynamic SOCKS proxy for the desktop."""
+    host_key = command(sandbox,'cat','/etc/ssh/ssh_host_ed25519_key.pub')
+    host, port = sandbox.tunnels()[22].tcp_socket
+    return {'tunnel':True,'host':host,'port':port,'host_key':host_key}
+
+def ensure_control(root, *, desktop=False):
     import modal
     from release_manifest import source_hash
     expected = source_hash()
@@ -47,6 +53,7 @@ def ensure_control(root):
                                    create_if_missing=True,version=2)
     values = {key:os.environ[key] for key in SECRET_KEYS}
     public = os.environ['MODAL_CONTROL_PUBLIC_KEY']
+    resolver = desktop_route if desktop else route
     deadline = time.monotonic()+1200
     sandbox = None
     while time.monotonic()<deadline:
@@ -79,7 +86,7 @@ def ensure_control(root):
         if exists(sandbox,'/app/dark-champion/.run/control-ready'):
             revision = command(sandbox,'cat','/app/dark-champion/.run/control-source')
             if revision == expected:
-                return sandbox,route(sandbox)
+                return sandbox,resolver(sandbox)
             # Flush the previous revision before allowing its successor to mount data.
             command(sandbox,'touch','/app/dark-champion/.run/stop-control')
             time.sleep(2)
