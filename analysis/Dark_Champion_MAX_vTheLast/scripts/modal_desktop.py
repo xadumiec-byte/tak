@@ -33,6 +33,22 @@ sys.path.insert(0, str(ROOT / "scripts"))
 
 from modal_control import SOCKS_PORT  # single source of truth for the desktop proxy port
 
+def _secret_put(name: str, data: dict) -> None:
+    """Create-or-replace a Modal Secret across old/new CLI APIs.
+
+    Newer modal versions dropped the name kwarg from Secret.from_dict and have
+    no update endpoint, so rotation means delete-by-name then create-by-name.
+    """
+    import modal
+    from modal.secret import SecretManager
+    manager = SecretManager(client=modal.client.Client.from_config())
+    try:
+        manager.delete(name, allow_missing=True)
+    except Exception as error:  # noqa: BLE001 - tolerate unknown secret states
+        print(f"[secret] delete skipped ({type(error).__name__})")
+    manager.create(name, data)
+
+
 UI_URL = f"http://127.0.0.1:{os.environ.get('OPEN_WEBUI_PORT', '3000')}"
 GATEWAY_HEALTH = "http://127.0.0.1:8088/health"
 UI_HEALTH = UI_URL + "/health"
@@ -86,10 +102,30 @@ def deploy_app():
         raise SystemExit("modal deploy failed:\n" + (result.stdout + result.stderr)[-2000:])
 
 
+def _wake_gpu(app):
+    """Trigger one serve() invocation without .spawn() (unsupported on web_server).
+
+    A deployed web_server function cannot be spawned directly; instead we run a
+    throwaway CPU sandbox that hits the app's serving URL once. If lookup fails,
+    the autoscaler will still boot serve() on the first real request.
+    """
+    import modal
+    try:
+        image = modal.Image.debian_slim(python_version="3.12").pip_install("httpx")
+        with modal.Sandbox.create("python3", "-c",
+                                  "import httpx; httpx.get('https://dark-champion-max.modal.run/health', timeout=30)",
+                                  image=image, timeout=60) as probe:
+            probe.wait()
+    except Exception as error:  # noqa: BLE001 - best-effort wake-up
+        raise error
+
+
 def wake_gpu(app):
     """Trigger one call so the GPU container starts vLLM + gateway inside serve()."""
     try:
-        app["serve"].spawn()
+        _wake_gpu(app)
+        # legacy fallback kept for non-web deployments:
+# app["serve"].spawn()
         print("[desktop] GPU serve spawned; cold start (model load) can take ~10 min.")
     except Exception as error:  # noqa: BLE001 - spawn is best-effort, health poll decides
         print(f"[desktop] serve spawn skipped ({type(error).__name__}); relying on autoscaler.")

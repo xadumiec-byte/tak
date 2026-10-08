@@ -1,23 +1,9 @@
-# Python compiled files and caches
-__pycache__/
-*.py[cod]
-*$py.class
-
-# Test artifacts
-.pytest-temp/
-.pytest_cache/
-.coverage
-htmlcov/
-coverage/
-
-# Environment and secrets
-.env
-.env.local
-.env.*.local
-
-# Build artifacts and archives
+# Compiled and build artifacts
 *.zip
-*.tar.gz
-*.tgz
-dist/
-build/
+
+# Test caches and temp files
+.pytest_cache/
+.pytest-temp/
+
+# Environment files
+.env

@@ -5,6 +5,22 @@ from pathlib import Path
 from modal_config import exclude_upload
 from modal_control import SECRET_KEYS
 
+def _secret_put(name: str, data: dict) -> None:
+    """Create-or-replace a Modal Secret across old/new CLI APIs.
+
+    Newer modal versions dropped the name kwarg from Secret.from_dict and have
+    no update endpoint, so rotation means delete-by-name then create-by-name.
+    """
+    import modal
+    from modal.secret import SecretManager
+    manager = SecretManager(client=modal.client.Client.from_config())
+    try:
+        manager.delete(name, allow_missing=True)
+    except Exception as error:  # noqa: BLE001 - tolerate unknown secret states
+        print(f"[secret] delete skipped ({type(error).__name__})")
+    manager.create(name, data)
+
+
 OWNER = 'dark-champion-control'
 NAME = 'runtime'
 

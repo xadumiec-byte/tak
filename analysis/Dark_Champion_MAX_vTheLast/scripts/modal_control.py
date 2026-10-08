@@ -1,4 +1,5 @@
 """Bounded Modal control VM and pinned SSH transport; no public auxiliary ports."""
+import os
 import json
 import ipaddress
 import os
@@ -7,6 +8,22 @@ import socket
 import subprocess
 import time
 import signal
+
+def _secret_put(name: str, data: dict) -> None:
+    """Create-or-replace a Modal Secret across old/new CLI APIs.
+
+    Newer modal versions dropped the name kwarg from Secret.from_dict and have
+    no update endpoint, so rotation means delete-by-name then create-by-name.
+    """
+    import modal
+    from modal.secret import SecretManager
+    manager = SecretManager(client=modal.client.Client.from_config())
+    try:
+        manager.delete(name, allow_missing=True)
+    except Exception as error:  # noqa: BLE001 - tolerate unknown secret states
+        print(f"[secret] delete skipped ({type(error).__name__})")
+    manager.create(name, data)
+
 
 PORTS = {'REDIS': 6379, 'QDRANT': 6333, 'SEARXNG': 8080,
          'CRAWL4AI': 11235, 'SANDBOX': 8091, 'OPEN_WEBUI': 3000}
@@ -81,7 +98,17 @@ def start_forwarder(env, route, root):
     directory.mkdir(parents=True, exist_ok=True)
     directory.chmod(0o700)
     private = directory / 'identity'
-    private.write_text(env['MODAL_CONTROL_PRIVATE_KEY']); private.chmod(0o600)
+    private.write_text(env['MODAL_CONTROL_PRIVATE_KEY'])
+    try:
+        private.chmod(0o600)
+    except OSError:
+        pass  # Windows NTFS ignores POSIX bits; verify readability instead
+    if os.name == 'nt':
+        subprocess.run(['icacls', str(private), '/inheritance:r',
+                        '/grant:r', f'{os.environ.get("USERNAME", "")}:(R,W)'],
+                       capture_output=True, check=False)
+    if not private.read_text().startswith(('-----BEGIN', 'ssh-')):
+        raise ValueError('Control private key file looks corrupt; delete .run/modal-control-key and rerun bootstrap')
     known = directory / 'known_hosts'
     known.write_text(f"[{host}]:{port} {route['host_key'].strip()}\n"); known.chmod(0o600)
     args = ['ssh', '-N', '-T', '-p', str(port), '-i', str(private),
@@ -121,7 +148,17 @@ def _ssh_transport(env, root, entry_args, ready_port, log_name='transport.log'):
     directory.mkdir(parents=True, exist_ok=True)
     directory.chmod(0o700)
     private = directory / 'identity'
-    private.write_text(env['MODAL_CONTROL_PRIVATE_KEY']); private.chmod(0o600)
+    private.write_text(env['MODAL_CONTROL_PRIVATE_KEY'])
+    try:
+        private.chmod(0o600)
+    except OSError:
+        pass  # Windows NTFS ignores POSIX bits; verify readability instead
+    if os.name == 'nt':
+        subprocess.run(['icacls', str(private), '/inheritance:r',
+                        '/grant:r', f'{os.environ.get("USERNAME", "")}:(R,W)'],
+                       capture_output=True, check=False)
+    if not private.read_text().startswith(('-----BEGIN', 'ssh-')):
+        raise ValueError('Control private key file looks corrupt; delete .run/modal-control-key and rerun bootstrap')
     known = directory / 'known_hosts'
     known.write_text(f"[{host}]:{port} {entry_args['host_key'].strip()}\n"); known.chmod(0o600)
     args = ['ssh', '-N', '-T', '-p', str(port), '-i', str(private),
@@ -137,7 +174,14 @@ def _ssh_transport(env, root, entry_args, ready_port, log_name='transport.log'):
     deadline = time.monotonic() + 30
     while time.monotonic() < deadline:
         if process.poll() is not None:
-            raise RuntimeError('Pinned SSH transport exited; inspect ' + log_name)
+            log_path = root / '.run' / 'ssh' / log_name
+            tail = ''
+            try:
+                tail = log_path.read_bytes()[-1500:].decode(errors='replace')
+            except OSError:
+                pass
+            raise RuntimeError(
+                'Pinned SSH transport exited; inspect ' + log_name + '\n' + tail)
         # -D binds the dynamic port only after authentication succeeds, so this
         # probe doubles as a credential/identity check before we declare ready.
         try:
